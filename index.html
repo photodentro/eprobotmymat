@@ -1,0 +1,114 @@
+<!doctype html>
+<!--
+Copyright (C) 2018 Alkis Georgopoulos <alkisg@gmail.com>.
+SPDX-License-Identifier: CC-BY-SA-4.0
+-->
+<html lang="el">
+<head>
+  <meta charset="UTF-8">
+  <title>eProbotLab προσομοιωτής</title>
+  <style>
+    /* Dummy style for animations */
+  </style>
+  <link rel="stylesheet" type="text/css" href="activity.css">
+  <script>
+
+  </script>
+  <script src="activity.js"></script>
+</head>
+<body>
+<div id="main">
+  <div id = "mats">
+  	Επιλογή δαπέδου:
+  	<select id ="sel">
+  		<option value="dice">Ζάρι</option>
+  		<option value="alpha">Αλφαβήτα</option>
+  	</select>
+  </div>
+  <div id = "ui">
+  	<div id = "up">
+  		<img id="cforward" src="./resource/beebot-fd.png"/>
+  	</div>
+  	<div id = "middle">
+  		<img id="cleft" src="./resource/beebot-lt.png"/>
+  		<img id="cright" src="./resource/beebot-rt.png"/>
+  	</div>
+  	<div id = "down">
+		<img id="cbackward" src="./resource/beebot-bk.png"/>
+	</div>
+  	<div id = "bottom">
+  		
+  	</div>
+
+  </div>
+   	
+  <div id="program">
+  	<div class="row" id="row0">
+  		<div class="cell" id="cell00"></div>
+  		<div class="cell" id="cell01"></div>
+  		<div class="cell" id="cell02"></div>
+  		<div class="cell" id="cell03"></div>
+  		<div class="cell" id="cell04"></div>
+  		<div class="cell" id="cell05"></div>
+  		<div class="cell" id="cell06"></div>
+  		<div class="cell" id="cell07"></div>
+  		<div class="cell" id="cell08"></div>
+  		<div class="cell" id="cell09"></div>
+    </div>
+  	<div class="row" id="row1">
+  		<div class="cell" id="cell10"></div>
+  		<div class="cell" id="cell11"></div>
+  		<div class="cell" id="cell12"></div>
+  		<div class="cell" id="cell13"></div>
+  		<div class="cell" id="cell14"></div>
+  		<div class="cell" id="cell15"></div>
+  		<div class="cell" id="cell16"></div>
+  		<div class="cell" id="cell17"></div>
+  		<div class="cell" id="cell18"></div>
+  		<div class="cell" id="cell19"></div>
+    </div>
+  	<div class="row" id="row2">
+  		<div class="cell" id="cell20"></div>
+  		<div class="cell" id="cell21"></div>
+  		<div class="cell" id="cell22"></div>
+  		<div class="cell" id="cell23"></div>
+  		<div class="cell" id="cell24"></div>
+  		<div class="cell" id="cell25"></div>
+  		<div class="cell" id="cell26"></div>
+  		<div class="cell" id="cell27"></div>
+  		<div class="cell" id="cell28"></div>
+  		<div class="cell" id="cell29"></div>
+    </div>
+  	<div class="row" id="row3">
+  		<div class="cell" id="cell30"></div>
+  		<div class="cell" id="cell31"></div>
+  		<div class="cell" id="cell32"></div>
+  		<div class="cell" id="cell33"></div>
+  		<div class="cell" id="cell34"></div>
+  		<div class="cell" id="cell35"></div>
+  		<div class="cell" id="cell36"></div>
+  		<div class="cell" id="cell37"></div>
+  		<div class="cell" id="cell38"></div>
+  		<div class="cell" id="cell39"></div>
+    </div>
+    <div id="programButtons">
+    	<img id="cgo" src="./resource/beebot-go.png"/><br/>
+    	<img id="cpause" src="./resource/beebot-pa.png"/>
+  		<img id="cdelete" src="./resource/beebot-de.png"/>
+    </div>
+
+  </div>
+  <div id="stage">
+
+  </div>
+
+  <div id="menubar">
+    <img id="bar_home" src="resource/bar_home.svg" alt="Αρχική" title="Επιστροφή στην αρχική σελίδα">
+    <img id="bar_help" src="resource/bar_help.svg" alt="Βοήθεια" title="Βοήθεια">
+    <img id="bar_about" src="resource/bar_about.svg" alt="Περί" title="Περί">
+    <img id="bar_fullscreen" src="resource/bar_fullscreen.svg" alt="Πλήρης οθόνη" title="Πλήρης οθόνη">
+  </div>
+<div id="help"><div class="dialog">Γράψτε τα ονόματα της τάξης σας και συμπληρώστε την επιλογή σας. Πατήστε το κουμπί για να δείτε το ραβδόγραμμα των επιλογών σας.</div>
+</div>
+</body>
+</html>
