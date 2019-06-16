@@ -2,7 +2,6 @@
 Copyright (C) 2018 Alkis Georgopoulos <alkisg@gmail.com>.
 SPDX-License-Identifier: CC-BY-SA-4.0*/
 
-var act = null;
 function onError(message, source, lineno, colno, error) {
   alert(sformat('Σφάλμα προγραμματιστή!\n'
     + 'message: {}\nsource: {}\nlineno: {}\ncolno: {}\nerror: {}',
@@ -98,16 +97,91 @@ function onFullScreen(event) {
 
 //--------------------------------------END OF VISUAL----------------------------
 //--------------------------------------START LOGIC------------------------------
-var numOfCommands = 0;
+const FD = 0
+const RT = 1
+const BK = 2
+const LT = 3
+var imgName = ['./resource/go-fd.png','./resource/go-rt.png','./resource/go-bk.png','./resource/go-lt.png'];
+var act = {
+  numOfCommands: 0,
+  program: [],
+  position: [0,0],
+  orientation: FD,
+}
+function bindCommand(cmdName,cmdCode){
+  ge(cmdName).onclick = function(event){
+    if (act.numOfCommands<=40){
+    	var cell = act.numOfCommands%10;
+    	var row  = Math.floor(act.numOfCommands/10);
+    	act.numOfCommands++;
+    	ge('cell'+row.toString()+cell.toString()).innerHTML = "<img src='" + imgName[cmdCode] + "'/>";
+      act.program.push(cmdCode);
+    }
+  }
+}
 
-function bindCommand(cmdName,imgName){
-ge(cmdName).onclick = function(event){
-	var cell = numOfCommands%10;
-	var row  = Math.floor(numOfCommands/10);
-	numOfCommands++;
-	ge('cell'+row.toString()+cell.toString()).innerHTML = "<img src='./resource/" + imgName + "'/>";
+function setOrientation(){
+  switch (act.orientation){
+    case FD: ge('eprobot').style.transform = 'rotate(0deg)'; break;
+    case RT: ge('eprobot').style.transform = 'rotate(90deg)'; break;
+    case BK: ge('eprobot').style.transform = 'rotate(180deg)'; break;
+    case LT: ge('eprobot').style.transform = 'rotate(270deg)'; break;
+  }
 }
+function moveUp(){
+  if (act.position[1] > 0){
+    act.position[1]--;
+    ge('eprobot').style.marginTop = sformat('{}em',act.position[1]*6);
+  }
 }
+function moveDown(){
+  if (act.position[1] < 4){
+    act.position[1]++;
+    ge('eprobot').style.marginTop = sformat('{}em',act.position[1]*6);
+  }
+}
+function moveRight(){
+  if (act.position[0] < 4){
+    act.position[0]++;
+    ge('eprobot').style.marginLeft = sformat('{}em',act.position[0]*6);
+  }  
+}
+function moveLeft(){
+ if (act.position[0] > 0){
+    act.position[0]--;
+    ge('eprobot').style.marginLeft = sformat('{}em',act.position[0]*6);
+  } 
+}
+
+function animation(cmdCode){
+  switch (cmdCode){
+    case FD:
+      switch (act.orientation){
+        case FD: moveUp(); break;
+        case RT: moveRight(); break;
+        case LT: moveLeft(); break;
+        case BK: moveDown(); break;
+      }
+    break;
+    case BK:
+      switch (act.orientation){
+        case FD: moveDown(); break;
+        case RT: moveLeft(); break;
+        case LT: moveRight(); break;
+        case BK: moveUp(); break;
+      }    
+    break;
+    case RT:
+      act.orientation = (act.orientation + 1) % 4;
+      setOrientation();
+    break;
+    case LT:
+      act.orientation = (act.orientation + 3) % 4;
+      setOrientation();
+    break;
+  }
+}
+
 
 function init(){
   // Internal level number is zero-based; but we display it as 1-based.
@@ -126,10 +200,15 @@ function init(){
     document.images[i].ondragstart = doPreventDefault;
   }
 
-  bindCommand('cforward','go-fd.png');
-  bindCommand('cbackward','go-bk.png');
-  bindCommand('cleft','go-lt.png');
-  bindCommand('cright','go-rt.png');
+  bindCommand('cforward',FD);
+  bindCommand('cbackward',BK);
+  bindCommand('cleft',LT);
+  bindCommand('cright',RT);
+  ge('cgo').addEventListener('click',function(event){
+    for (let i=0; i<act.program.length; i++){
+      setTimeout(function(){animation(act.program[i])}, i*1000);
+    }
+  });
   
 }
 
