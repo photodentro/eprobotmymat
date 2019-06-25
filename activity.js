@@ -102,12 +102,7 @@ const RT = 1
 const BK = 2
 const LT = 3
 var imgName = ['./resource/go-fd.png','./resource/go-rt.png','./resource/go-bk.png','./resource/go-lt.png'];
-var act = {
-  numOfCommands: 0,
-  program: [],
-  position: [0,0],
-  orientation: FD,
-}
+var act = {};
 function bindCommand(cmdName,cmdCode){
   ge(cmdName).onclick = function(event){
     if (act.numOfCommands<=40){
@@ -118,6 +113,20 @@ function bindCommand(cmdName,cmdCode){
       act.program.push(cmdCode);
     }
   }
+}
+
+function deleteProgram(){
+  act.program = [];
+  for (var row=0; i<4; i++){
+    for (var cell=0; j<10; j++){
+      ge('cell'+row.toString()+cell.toString()).innerHTML = "";
+    }
+  }
+}
+
+function setSquare(){
+  ge('eprobot').style.marginTop = sformat('{}em',act.position[1]*6);
+  ge('eprobot').style.marginLeft = sformat('{}em',act.position[0]*6);
 }
 
 function setOrientation(){
@@ -182,6 +191,18 @@ function animation(cmdCode){
   }
 }
 
+function restart(){
+
+  act = {
+    numOfCommands: 0,
+    program: [],
+    position: [0,0],
+    orientation: FD,
+  }
+  setOrientation();
+  setSquare();
+  deleteProgram();
+}
 
 function init(){
   // Internal level number is zero-based; but we display it as 1-based.
@@ -200,16 +221,19 @@ function init(){
     document.images[i].ondragstart = doPreventDefault;
   }
 
+  restart();
+
   bindCommand('cforward',FD);
   bindCommand('cbackward',BK);
   bindCommand('cleft',LT);
   bindCommand('cright',RT);
+
   ge('cgo').addEventListener('click',function(event){
     for (let i=0; i<act.program.length; i++){
       setTimeout(function(){animation(act.program[i])}, i*1000);
     }
   });
-  
+  ge('cdelete').addEventListener('click',function (event){alert("hi");restart();});
 }
 
 window.onerror = onError;
@@ -217,7 +241,7 @@ window.onload = init;
 // Call onResize even before the images are loaded
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', onResize);
-} else {  // `DOMContentLoaded` already fired
+} else {  // DOMContentLoaded` already fired
   onResize();
 }
 
