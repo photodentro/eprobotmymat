@@ -101,25 +101,57 @@ const FD = 0
 const RT = 1
 const BK = 2
 const LT = 3
-var imgName = ['./resource/go-fd.png','./resource/go-rt.png','./resource/go-bk.png','./resource/go-lt.png'];
 var act = {};
+function showCommand(cmdCode,row,cell){
+  var idSuffix = ['fd','rt','bk','lt'];
+  for (var i=0; i<4; i++){
+    if (i==cmdCode){
+      ge('cell'+row.toString()+cell.toString()+idSuffix[i]).style.display = '';
+    }
+    else{
+      ge('cell'+row.toString()+cell.toString()+idSuffix[i]).style.display = 'none';
+    }
+  }
+}
+
+function highlightCommand(i){
+  for (var cell = 0; cell<10; cell++){
+    for (var row = 0; row<4; row++){
+      ge('cell'+row.toString()+cell.toString()).style.borderWidth="0";
+      ge('cell'+row.toString()+cell.toString()).style.borderStyle='solid';
+      ge('cell'+row.toString()+cell.toString()).style.borderColor='black';
+    }
+  }
+  if (i!=-1){
+    var cell = i%10;
+    var row  = Math.floor(i/10);
+    console.log('cell'+row.toString()+cell.toString());
+    ge('cell'+row.toString()+cell.toString()).style.borderWidth='2px';
+    ge('cell'+row.toString()+cell.toString()).style.borderStyle='solid';
+    ge('cell'+row.toString()+cell.toString()).style.borderColor='black';
+  }
+}
+
 function bindCommand(cmdName,cmdCode){
   ge(cmdName).onclick = function(event){
     if (act.numOfCommands<=40){
     	var cell = act.numOfCommands%10;
     	var row  = Math.floor(act.numOfCommands/10);
     	act.numOfCommands++;
-    	ge('cell'+row.toString()+cell.toString()).innerHTML = "<img src='" + imgName[cmdCode] + "'/>";
+      showCommand(cmdCode,row,cell);
       act.program.push(cmdCode);
     }
   }
 }
 
 function deleteProgram(){
+  var idSuffix = ['fd','rt','bk','lt'];
   act.program = [];
-  for (var row=0; i<4; i++){
-    for (var cell=0; j<10; j++){
-      ge('cell'+row.toString()+cell.toString()).innerHTML = "";
+  for (var row=0; row<4; row++){
+    for (var cell=0; cell<10; cell++){
+      for (var i=0; i<4; i++){
+         ge('cell'+row.toString()+cell.toString()+idSuffix[i]).style.display = 'none';
+      }    
     }
   }
 }
@@ -202,6 +234,7 @@ function restart(){
   setOrientation();
   setSquare();
   deleteProgram();
+  highlightCommand(-1);//-1 means none
 }
 
 function init(){
@@ -230,10 +263,13 @@ function init(){
 
   ge('cgo').addEventListener('click',function(event){
     for (let i=0; i<act.program.length; i++){
-      setTimeout(function(){animation(act.program[i])}, i*1000);
+      setTimeout(function(){highlightCommand(i);animation(act.program[i])}, i*1000);
     }
+    setTimeout(function(){
+      highlightCommand(-1);//highlight none
+    },act.program.length*1000);
   });
-  ge('cdelete').addEventListener('click',function (event){alert("hi");restart();});
+  ge('cdelete').addEventListener('click',restart);
 }
 
 window.onerror = onError;
@@ -246,3 +282,15 @@ if (document.readyState === 'loading') {
 }
 
 
+function changeGrid(){
+  var grids = {"empty":"resource/grid.svg",
+               "alpha":"resource/alphabet.svg",
+               "dice":"resource/dice.svg"}
+  var s = ge('sel');
+  var i = s.selectedIndex;
+  var sv = s.options[i].value;
+  var im = grids[sv];
+  var imurl = "url('" + im + "')";
+
+  ge('stage').style.backgroundImage = imurl;
+}

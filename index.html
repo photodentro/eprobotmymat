@@ -12,7 +12,6 @@ SPDX-License-Identifier: CC-BY-SA-4.0
   </style>
   <link rel="stylesheet" type="text/css" href="activity.css">
   <script>
-
   </script>
   <script src="activity.js"></script>
 </head>
@@ -21,7 +20,8 @@ SPDX-License-Identifier: CC-BY-SA-4.0
   <div id = "ui">
       <div id = "mats">
     Επιλογή δαπέδου:
-    <select id ="sel">
+    <select id ="sel" onchange="changeGrid();">
+      <option value="empty">Κενό</option>
       <option value="dice">Ζάρι</option>
       <option value="alpha">Αλφαβήτα</option>
     </select>
@@ -39,52 +39,252 @@ SPDX-License-Identifier: CC-BY-SA-4.0
   </div>
   <div id="program">
     <div class="row" id="row0">
-      <div class="cell" id="cell00"></div>
-      <div class="cell" id="cell01"></div>
-      <div class="cell" id="cell02"></div>
-      <div class="cell" id="cell03"></div>
-      <div class="cell" id="cell04"></div>
-      <div class="cell" id="cell05"></div>
-      <div class="cell" id="cell06"></div>
-      <div class="cell" id="cell07"></div>
-      <div class="cell" id="cell08"></div>
-      <div class="cell" id="cell09"></div>
+      <div class="cell" id="cell00">
+        <img id="cell00fd" src="./resource/go-fd.png"/>
+        <img id="cell00rt" src="./resource/go-rt.png"/>
+        <img id="cell00bk" src="./resource/go-bk.png"/>
+        <img id="cell00lt" src="./resource/go-lt.png"/>
+      </div>
+      <div class="cell" id="cell01">
+        <img id="cell01fd" src="./resource/go-fd.png"/>
+        <img id="cell01rt" src="./resource/go-rt.png"/>
+        <img id="cell01bk" src="./resource/go-bk.png"/>
+        <img id="cell01lt" src="./resource/go-lt.png"/>      
+      </div>
+      <div class="cell" id="cell02">
+        <img id="cell02fd" src="./resource/go-fd.png"/>
+        <img id="cell02rt" src="./resource/go-rt.png"/>
+        <img id="cell02bk" src="./resource/go-bk.png"/>
+        <img id="cell02lt" src="./resource/go-lt.png"/>
+      </div>
+      <div class="cell" id="cell03">
+        <img id="cell03fd" src="./resource/go-fd.png"/>
+        <img id="cell03rt" src="./resource/go-rt.png"/>
+        <img id="cell03bk" src="./resource/go-bk.png"/>
+        <img id="cell03lt" src="./resource/go-lt.png"/>
+      </div>
+      <div class="cell" id="cell04">
+        <img id="cell04fd" src="./resource/go-fd.png"/>
+        <img id="cell04rt" src="./resource/go-rt.png"/>
+        <img id="cell04bk" src="./resource/go-bk.png"/>
+        <img id="cell04lt" src="./resource/go-lt.png"/>        
+      </div>
+      <div class="cell" id="cell05">
+        <img id="cell05fd" src="./resource/go-fd.png"/>
+        <img id="cell05rt" src="./resource/go-rt.png"/>
+        <img id="cell05bk" src="./resource/go-bk.png"/>
+        <img id="cell05lt" src="./resource/go-lt.png"/>
+      </div>
+      <div class="cell" id="cell06">
+        <img id="cell06fd" src="./resource/go-fd.png"/>
+        <img id="cell06rt" src="./resource/go-rt.png"/>
+        <img id="cell06bk" src="./resource/go-bk.png"/>
+        <img id="cell06lt" src="./resource/go-lt.png"/>
+      </div>
+      <div class="cell" id="cell07">
+        <img id="cell07fd" src="./resource/go-fd.png"/>
+        <img id="cell07rt" src="./resource/go-rt.png"/>
+        <img id="cell07bk" src="./resource/go-bk.png"/>
+        <img id="cell07lt" src="./resource/go-lt.png"/>
+      </div>
+      <div class="cell" id="cell08">
+        <img id="cell08fd" src="./resource/go-fd.png"/>
+        <img id="cell08rt" src="./resource/go-rt.png"/>
+        <img id="cell08bk" src="./resource/go-bk.png"/>
+        <img id="cell08lt" src="./resource/go-lt.png"/>
+      </div>
+      <div class="cell" id="cell09">
+        <img id="cell09fd" src="./resource/go-fd.png"/>
+        <img id="cell09rt" src="./resource/go-rt.png"/>
+        <img id="cell09bk" src="./resource/go-bk.png"/>
+        <img id="cell09lt" src="./resource/go-lt.png"/>
+      </div>
     </div>
     <div class="row" id="row1">
-      <div class="cell" id="cell10"></div>
-      <div class="cell" id="cell11"></div>
-      <div class="cell" id="cell12"></div>
-      <div class="cell" id="cell13"></div>
-      <div class="cell" id="cell14"></div>
-      <div class="cell" id="cell15"></div>
-      <div class="cell" id="cell16"></div>
-      <div class="cell" id="cell17"></div>
-      <div class="cell" id="cell18"></div>
-      <div class="cell" id="cell19"></div>
+      <div class="cell" id="cell10">
+        <img id="cell10fd" src="./resource/go-fd.png"/>
+        <img id="cell10rt" src="./resource/go-rt.png"/>
+        <img id="cell10bk" src="./resource/go-bk.png"/>
+        <img id="cell10lt" src="./resource/go-lt.png"/>
+      </div>
+      <div class="cell" id="cell11">
+        <img id="cell11fd" src="./resource/go-fd.png"/>
+        <img id="cell11rt" src="./resource/go-rt.png"/>
+        <img id="cell11bk" src="./resource/go-bk.png"/>
+        <img id="cell11lt" src="./resource/go-lt.png"/>
+      </div>
+      <div class="cell" id="cell12">
+        <img id="cell12fd" src="./resource/go-fd.png"/>
+        <img id="cell12rt" src="./resource/go-rt.png"/>
+        <img id="cell12bk" src="./resource/go-bk.png"/>
+        <img id="cell12lt" src="./resource/go-lt.png"/>
+      </div>
+      <div class="cell" id="cell13">
+        <img id="cell13fd" src="./resource/go-fd.png"/>
+        <img id="cell13rt" src="./resource/go-rt.png"/>
+        <img id="cell13bk" src="./resource/go-bk.png"/>
+        <img id="cell13lt" src="./resource/go-lt.png"/>
+      </div>
+      <div class="cell" id="cell14">
+      </div>
+        <img id="cell14fd" src="./resource/go-fd.png"/>
+        <img id="cell14rt" src="./resource/go-rt.png"/>
+        <img id="cell14bk" src="./resource/go-bk.png"/>
+        <img id="cell14lt" src="./resource/go-lt.png"/>
+      <div class="cell" id="cell15">
+        <img id="cell15fd" src="./resource/go-fd.png"/>
+        <img id="cell15rt" src="./resource/go-rt.png"/>
+        <img id="cell15bk" src="./resource/go-bk.png"/>
+        <img id="cell15lt" src="./resource/go-lt.png"/>
+      </div>
+      <div class="cell" id="cell16">
+        <img id="cell16fd" src="./resource/go-fd.png"/>
+        <img id="cell16rt" src="./resource/go-rt.png"/>
+        <img id="cell16bk" src="./resource/go-bk.png"/>
+        <img id="cell16lt" src="./resource/go-lt.png"/>
+      </div>
+      <div class="cell" id="cell17">
+        <img id="cell17fd" src="./resource/go-fd.png"/>
+        <img id="cell17rt" src="./resource/go-rt.png"/>
+        <img id="cell17bk" src="./resource/go-bk.png"/>
+        <img id="cell17lt" src="./resource/go-lt.png"/>
+      </div>
+      <div class="cell" id="cell18">
+        <img id="cell18fd" src="./resource/go-fd.png"/>
+        <img id="cell18rt" src="./resource/go-rt.png"/>
+        <img id="cell18bk" src="./resource/go-bk.png"/>
+        <img id="cell18lt" src="./resource/go-lt.png"/>
+      </div>
+      <div class="cell" id="cell19">
+        <img id="cell19fd" src="./resource/go-fd.png"/>
+        <img id="cell19rt" src="./resource/go-rt.png"/>
+        <img id="cell19bk" src="./resource/go-bk.png"/>
+        <img id="cell19lt" src="./resource/go-lt.png"/>
+      </div>
     </div>
     <div class="row" id="row2">
-      <div class="cell" id="cell20"></div>
-      <div class="cell" id="cell21"></div>
-      <div class="cell" id="cell22"></div>
-      <div class="cell" id="cell23"></div>
-      <div class="cell" id="cell24"></div>
-      <div class="cell" id="cell25"></div>
-      <div class="cell" id="cell26"></div>
-      <div class="cell" id="cell27"></div>
-      <div class="cell" id="cell28"></div>
-      <div class="cell" id="cell29"></div>
+      <div class="cell" id="cell20">
+        <img id="cell20fd" src="./resource/go-fd.png"/>
+        <img id="cell20rt" src="./resource/go-rt.png"/>
+        <img id="cell20bk" src="./resource/go-bk.png"/>
+        <img id="cell20lt" src="./resource/go-lt.png"/>
+      </div>
+      <div class="cell" id="cell21">
+        <img id="cell21fd" src="./resource/go-fd.png"/>
+        <img id="cell21rt" src="./resource/go-rt.png"/>
+        <img id="cell21bk" src="./resource/go-bk.png"/>
+        <img id="cell21lt" src="./resource/go-lt.png"/>
+      </div>
+      <div class="cell" id="cell22">
+        <img id="cell22fd" src="./resource/go-fd.png"/>
+        <img id="cell22rt" src="./resource/go-rt.png"/>
+        <img id="cell22bk" src="./resource/go-bk.png"/>
+        <img id="cell22lt" src="./resource/go-lt.png"/>
+      </div>
+      <div class="cell" id="cell23">
+        <img id="cell23fd" src="./resource/go-fd.png"/>
+        <img id="cell23rt" src="./resource/go-rt.png"/>
+        <img id="cell23bk" src="./resource/go-bk.png"/>
+        <img id="cell23lt" src="./resource/go-lt.png"/>
+      </div>
+      <div class="cell" id="cell24">
+        <img id="cell24fd" src="./resource/go-fd.png"/>
+        <img id="cell24rt" src="./resource/go-rt.png"/>
+        <img id="cell24bk" src="./resource/go-bk.png"/>
+        <img id="cell24lt" src="./resource/go-lt.png"/>
+      </div>
+      <div class="cell" id="cell25">
+        <img id="cell25fd" src="./resource/go-fd.png"/>
+        <img id="cell25rt" src="./resource/go-rt.png"/>
+        <img id="cell25bk" src="./resource/go-bk.png"/>
+        <img id="cell25lt" src="./resource/go-lt.png"/>
+      </div>
+      <div class="cell" id="cell26">
+        <img id="cell26fd" src="./resource/go-fd.png"/>
+        <img id="cell26rt" src="./resource/go-rt.png"/>
+        <img id="cell26bk" src="./resource/go-bk.png"/>
+        <img id="cell26lt" src="./resource/go-lt.png"/>
+      </div>
+      <div class="cell" id="cell27">
+        <img id="cell27fd" src="./resource/go-fd.png"/>
+        <img id="cell27rt" src="./resource/go-rt.png"/>
+        <img id="cell27bk" src="./resource/go-bk.png"/>
+        <img id="cell27lt" src="./resource/go-lt.png"/>
+      </div>
+      <div class="cell" id="cell28">
+        <img id="cell28fd" src="./resource/go-fd.png"/>
+        <img id="cell28rt" src="./resource/go-rt.png"/>
+        <img id="cell28bk" src="./resource/go-bk.png"/>
+        <img id="cell28lt" src="./resource/go-lt.png"/>
+      </div>
+      <div class="cell" id="cell29">
+        <img id="cell29fd" src="./resource/go-fd.png"/>
+        <img id="cell29rt" src="./resource/go-rt.png"/>
+        <img id="cell29bk" src="./resource/go-bk.png"/>
+        <img id="cell29lt" src="./resource/go-lt.png"/>
+    </div>
     </div>
     <div class="row" id="row3">
-      <div class="cell" id="cell30"></div>
-      <div class="cell" id="cell31"></div>
-      <div class="cell" id="cell32"></div>
-      <div class="cell" id="cell33"></div>
-      <div class="cell" id="cell34"></div>
-      <div class="cell" id="cell35"></div>
-      <div class="cell" id="cell36"></div>
-      <div class="cell" id="cell37"></div>
-      <div class="cell" id="cell38"></div>
-      <div class="cell" id="cell39"></div>
+      <div class="cell" id="cell30">
+        <img id="cell30fd" src="./resource/go-fd.png"/>
+        <img id="cell30rt" src="./resource/go-rt.png"/>
+        <img id="cell30bk" src="./resource/go-bk.png"/>
+        <img id="cell30lt" src="./resource/go-lt.png"/>
+      </div>
+      <div class="cell" id="cell31">
+        <img id="cell31fd" src="./resource/go-fd.png"/>
+        <img id="cell31rt" src="./resource/go-rt.png"/>
+        <img id="cell31bk" src="./resource/go-bk.png"/>
+        <img id="cell31lt" src="./resource/go-lt.png"/>
+      </div>
+      <div class="cell" id="cell32">
+        <img id="cell32fd" src="./resource/go-fd.png"/>
+        <img id="cell32rt" src="./resource/go-rt.png"/>
+        <img id="cell32bk" src="./resource/go-bk.png"/>
+        <img id="cell32lt" src="./resource/go-lt.png"/>
+      </div>
+      <div class="cell" id="cell33">
+        <img id="cell33fd" src="./resource/go-fd.png"/>
+        <img id="cell33rt" src="./resource/go-rt.png"/>
+        <img id="cell33bk" src="./resource/go-bk.png"/>
+        <img id="cell33lt" src="./resource/go-lt.png"/>
+      </div>
+      <div class="cell" id="cell34">
+        <img id="cell34fd" src="./resource/go-fd.png"/>
+        <img id="cell34rt" src="./resource/go-rt.png"/>
+        <img id="cell34bk" src="./resource/go-bk.png"/>
+        <img id="cell34lt" src="./resource/go-lt.png"/>
+      </div>
+      <div class="cell" id="cell35">
+        <img id="cell35fd" src="./resource/go-fd.png"/>
+        <img id="cell35rt" src="./resource/go-rt.png"/>
+        <img id="cell35bk" src="./resource/go-bk.png"/>
+        <img id="cell35lt" src="./resource/go-lt.png"/>
+      </div>
+      <div class="cell" id="cell36">
+        <img id="cell36fd" src="./resource/go-fd.png"/>
+        <img id="cell36rt" src="./resource/go-rt.png"/>
+        <img id="cell36bk" src="./resource/go-bk.png"/>
+        <img id="cell36lt" src="./resource/go-lt.png"/>
+      </div>
+      <div class="cell" id="cell37">
+        <img id="cell37fd" src="./resource/go-fd.png"/>
+        <img id="cell37rt" src="./resource/go-rt.png"/>
+        <img id="cell37bk" src="./resource/go-bk.png"/>
+        <img id="cell37lt" src="./resource/go-lt.png"/>
+      </div>
+      <div class="cell" id="cell38">
+        <img id="cell38fd" src="./resource/go-fd.png"/>
+        <img id="cell38rt" src="./resource/go-rt.png"/>
+        <img id="cell38bk" src="./resource/go-bk.png"/>
+        <img id="cell38lt" src="./resource/go-lt.png"/>
+      </div>
+      <div class="cell" id="cell39">
+        <img id="cell39fd" src="./resource/go-fd.png"/>
+        <img id="cell39rt" src="./resource/go-rt.png"/>
+        <img id="cell39bk" src="./resource/go-bk.png"/>
+        <img id="cell39lt" src="./resource/go-lt.png"/>
+      </div>
     </div>
     <div id="programButtons">
       <img id="cgo" src="./resource/beebot-go.png"/><br/>
@@ -95,7 +295,6 @@ SPDX-License-Identifier: CC-BY-SA-4.0
   <div id="stage">
       <img id="eprobot" src="./resource/eprobot.svg">
   </div>
-
   <div id="menubar">
     <img id="bar_home" src="resource/bar_home.svg" alt="Αρχική" title="Επιστροφή στην αρχική σελίδα">
     <img id="bar_help" src="resource/bar_help.svg" alt="Βοήθεια" title="Βοήθεια">
