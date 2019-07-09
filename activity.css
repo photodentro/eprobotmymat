@@ -11,6 +11,9 @@ SPDX-License-Identifier: CC-BY-SA-4.0
   -ms-user-select: none;
   user-select: none;
   overflow: hidden;
+/*  border-style: dotted;
+  border-width:1px;
+  border-color: red;*/
 }
 
 html, body {  /* flexbox needs this to center the main div */
@@ -74,7 +77,7 @@ body {
   float:left;
   overflow: auto;
   margin-left: 0.3em;
-  width:15.5em;
+  width:15em;
   text-align:center;
 }
 #bottom{
@@ -84,16 +87,16 @@ body {
   width:15em;
 }
 #cforward{
-	height:5em;
+	height:4em;
 }
 #cleft{
-	width:5em;
+	width:4em;
 }
 #cright{
-	width:5em;
+	width:4em;
 }
 #cbackward{
-	height:5em;
+	height:4em;
 }
 #up{
   background-color:#ffffff77;
@@ -117,13 +120,29 @@ body {
   width:15em;
 }
 
+#cgo{
+  width:80%;
+  margin-top:1em;
+}
+
+#cpause{
+  width:80%;
+  margin-top:1em;
+}
+#cdelete{
+  width:80%;
+  margin-top:1em;
+}
 #program{
   background-color:#00000077;
   display:inline-block;
   height: 32em;
-  width: 15em;
-  margin-right:1em;
-  height:;
+  width: 17em;
+  display:inline-block;
+  margin-left:0.4em;
+  margin-right:0.4em;
+  height:30em;
+  vertical-align: top;
 }
 
 #programButtons{
@@ -131,24 +150,32 @@ body {
   height: 24em;
   width: 100%;
 }
-.row{
-	display: inline-block;
-	height: 4em;
-	width:100%;
-}
+
 .cell{
 	display: inline-block;
-	margin:0;
-	padding:0;
-	height: 4em;
-	width:1.2em;
+  margin-left:0.1em;
+  margin-top:0.1em;
+  padding:0.1em;
+	height: 3.9em;
+	width: 3.9em;
+}
+
+.cell img{
+  height: 3.8em;
+  width: 3.8em;
+
+}
+
+.cellHighlight{
+  filter:hue-rotate(180deg);
+  transform: scale(1.1);
 }
 #stage{
   background-image:url('./resource/grid.svg');
   background-size: cover;
   display:inline-block;
   margin-bottom: 1.5em;
-  margin-right:1.5em;
+  margin-right:0.5em;
   height: 30em;
   width:30em;
 }

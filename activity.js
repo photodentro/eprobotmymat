@@ -101,44 +101,37 @@ const FD = 0
 const RT = 1
 const BK = 2
 const LT = 3
-var act = {};
-function showCommand(cmdCode,row,cell){
+let act = {};
+
+const allCommands = 28;
+function showCommand(cmdCode,cell){
   var idSuffix = ['fd','rt','bk','lt'];
-  for (var i=0; i<4; i++){
+  for (var i=0; i<4; i++){//for all cmdCodes
     if (i==cmdCode){
-      ge('cell'+row.toString()+cell.toString()+idSuffix[i]).style.display = '';
+      ge('cell'+cell.toString()+idSuffix[i]).style.display = '';
     }
     else{
-      ge('cell'+row.toString()+cell.toString()+idSuffix[i]).style.display = 'none';
+      ge('cell'+cell.toString()+idSuffix[i]).style.display = 'none';
     }
   }
 }
 
 function highlightCommand(i){
-  for (var cell = 0; cell<10; cell++){
-    for (var row = 0; row<4; row++){
-      ge('cell'+row.toString()+cell.toString()).style.borderWidth="0";
-      ge('cell'+row.toString()+cell.toString()).style.borderStyle='solid';
-      ge('cell'+row.toString()+cell.toString()).style.borderColor='black';
+  for (var cell = 0; cell<allCommands; cell++){
+      ge('cell'+cell.toString()).classList.remove('cellHighlight');
     }
-  }
   if (i!=-1){
-    var cell = i%10;
-    var row  = Math.floor(i/10);
-    console.log('cell'+row.toString()+cell.toString());
-    ge('cell'+row.toString()+cell.toString()).style.borderWidth='2px';
-    ge('cell'+row.toString()+cell.toString()).style.borderStyle='solid';
-    ge('cell'+row.toString()+cell.toString()).style.borderColor='black';
+    cell = i;
+    ge('cell'+cell.toString()).classList.add('cellHighlight');
   }
 }
 
 function bindCommand(cmdName,cmdCode){
   ge(cmdName).onclick = function(event){
-    if (act.numOfCommands<=40){
-    	var cell = act.numOfCommands%10;
-    	var row  = Math.floor(act.numOfCommands/10);
+    if (act.numOfCommands<=allCommands){
+      cell = act.numOfCommands;
     	act.numOfCommands++;
-      showCommand(cmdCode,row,cell);
+      showCommand(cmdCode,cell);
       act.program.push(cmdCode);
     }
   }
@@ -147,12 +140,10 @@ function bindCommand(cmdName,cmdCode){
 function deleteProgram(){
   var idSuffix = ['fd','rt','bk','lt'];
   act.program = [];
-  for (var row=0; row<4; row++){
-    for (var cell=0; cell<10; cell++){
-      for (var i=0; i<4; i++){
-         ge('cell'+row.toString()+cell.toString()+idSuffix[i]).style.display = 'none';
-      }    
-    }
+  for (var cell=0; cell<allCommands; cell++){
+    for (var i=0; i<4; i++){
+         ge('cell'+cell.toString()+idSuffix[i]).style.display = 'none';
+    }    
   }
 }
 
@@ -230,6 +221,8 @@ function restart(){
     program: [],
     position: [0,0],
     orientation: FD,
+    play: false,//play means that the program is executed but may be it is paused
+    pause: false,
   }
   setOrientation();
   setSquare();
@@ -262,14 +255,31 @@ function init(){
   bindCommand('cright',RT);
 
   ge('cgo').addEventListener('click',function(event){
+    act.position = [0,0];
+    act.orientation = FD
+    act.play = true;
+    setOrientation();
+    setSquare();
     for (let i=0; i<act.program.length; i++){
-      setTimeout(function(){highlightCommand(i);animation(act.program[i])}, i*1000);
+      setTimeout(function(){
+        if (!act.pause){
+          highlightCommand(i);
+          animation(act.program[i])
+        }
+      }, i*1000);
     }
     setTimeout(function(){
       highlightCommand(-1);//highlight none
     },act.program.length*1000);
   });
+  
   ge('cdelete').addEventListener('click',restart);
+
+  ge('cpause').addEventListener('click',function(){
+    if (act.play){//pause when not playing does nothing
+
+    }
+  });
 }
 
 window.onerror = onError;
