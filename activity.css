@@ -163,11 +163,11 @@ body {
 .cell img{
   height: 3.8em;
   width: 3.8em;
-
+  filter: hue-rotate(90deg);
 }
 
 .cellHighlight{
-  filter:hue-rotate(180deg);
+  filter:hue-rotate(45deg);
   transform: scale(1.1);
 }
 #stage{
