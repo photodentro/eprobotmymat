@@ -88,15 +88,19 @@ body {
 }
 #cforward{
 	height:4em;
+  cursor:pointer;  
 }
 #cleft{
 	width:4em;
+  cursor:pointer;  
 }
 #cright{
 	width:4em;
+  cursor:pointer;  
 }
 #cbackward{
 	height:4em;
+  cursor:pointer;  
 }
 #up{
   background-color:#ffffff77;
@@ -123,15 +127,18 @@ body {
 #cgo{
   width:80%;
   margin-top:1em;
+  cursor:pointer;
 }
 
 #cpause{
   width:80%;
   margin-top:1em;
+  cursor:pointer;  
 }
 #cdelete{
   width:80%;
   margin-top:1em;
+  cursor:pointer;  
 }
 #program{
   background-color:#00000077;
@@ -149,6 +156,7 @@ body {
   display:inline-block;
   height: 24em;
   width: 100%;
+  cursor:pointer;  
 }
 
 .cell{
@@ -163,11 +171,13 @@ body {
 .cell img{
   height: 3.8em;
   width: 3.8em;
-  filter: hue-rotate(90deg);
+  filter: hue-rotate(210deg) brightness(140%);
 }
 
 .cellHighlight{
-  filter:hue-rotate(45deg);
+  filter: brightness(180%);
+  border: 2px solid yellow;
+  border-radius: 15px;
   transform: scale(1.1);
 }
 #stage{
@@ -182,16 +192,13 @@ body {
 #grid{
 	width:100%;
 	height:100%;
-    text-align:left;
+  text-align:left;
 }
 #eprobot{
 	width:6em;
 	height:6em;
 	margin-left:0em;
 	margin-top:0em;
-	border-style:solid;
-	border-color:red;
-	border-width:2px;
 }
 
 
