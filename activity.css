@@ -148,6 +148,7 @@ body {
   display:inline-block;
   margin-left:0.4em;
   margin-right:0.4em;
+  padding: 0.1em 0.1em 0.1em 0.1em;
   height:30em;
   vertical-align: top;
 }
@@ -163,13 +164,15 @@ body {
 	display: inline-block;
   margin-left:0.1em;
   margin-top:0.1em;
-  padding:0.1em;
+  
 	height: 3.9em;
 	width: 3.9em;
 	text-align: center;
+	cursor:pointer;
 }
 
 .cell img{
+  margin-left: -0.1em;
   height: 3.8em;
   width: 3.8em;
   filter: hue-rotate(210deg) brightness(140%);
@@ -178,8 +181,8 @@ body {
 .cellHighlight{
   filter: brightness(180%);
   border: 2px solid yellow;
-  border-radius: 15px;
-  transform: scale(1.1);
+  
+  transform: scale1.1);
 }
 #stage{
   background-image:url('./resource/grid.svg');

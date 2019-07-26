@@ -45,8 +45,8 @@ function shuffle(a) {
   return result;
 }
 
-function ge(element) {
-  return document.getElementById(element);
+function ge(id) {
+  return document.getElementById(id);
 }
 
 function onResize(event) {
@@ -359,6 +359,8 @@ function moveLeft(){
 
 function nextCommand(){
   if (act.play){
+    setSquare();
+    setOrientation();
     cmdCode = act.program[act.cmdExec];
     if (act.cmdExec<act.program.length)
       {highlightCommand(act.cmdExec);
@@ -366,6 +368,9 @@ function nextCommand(){
     else{
       highlightCommand(-1);
       act.play = false;
+      act.cmdExec = 0;
+      act.position = [0,4];
+      act.orientation = FD;
     }
     switch (cmdCode){
       case FD:
@@ -430,6 +435,43 @@ function stop(){
   clearInterval(inter2);
 }
 
+function runFast(currentCommand){
+  if (!act.play){
+    act.position = [0,4];
+    act.orientation = FD;
+    for (i=0; i<=currentCommand; i++){
+      switch (act.program[i]){
+        case FD:
+          switch (act.orientation){
+            case FD: if (act.position[1]>0) act.position[1]--; break;
+            case RT: if (act.position[0]<4) act.position[0]++; break;
+            case LT: if (act.position[0]>0) act.position[0]--; break;
+            case BK: if (act.position[1]<4) act.position[1]++; break;
+          }
+        break;
+        case BK:
+          switch (act.orientation){
+            case FD: if (act.position[1]<4) act.position[1]++; break;
+            case RT: if (act.position[0]>0) act.position[0]--; break;
+            case LT: if (act.position[0]<4) act.position[0]++; break;
+            case BK: if (act.position[1]>0) act.position[1]--; break;
+          }    
+        break;
+        case RT:
+          act.orientation = (act.orientation + 1) % 4;
+        break;
+        case LT:
+          act.orientation = (act.orientation + 3) % 4;
+        break;
+      }
+    }
+    setSquare();
+    setOrientation();
+    act.cmdExec = i;
+    highlightCommand(i-1);
+  }
+}
+
 
 
 function init(){
@@ -457,13 +499,13 @@ function init(){
   bindCommand('cright',RT);
 
   ge('cgo').addEventListener('click',function(event){
-    act.position = [0,4];
-    act.orientation = FD;
+    //act.position = [0,4];
+    //act.orientation = FD;
+    //act.cmdExec = 0;
+    if (!act.play){
     act.play = true;
-    setOrientation();
-    setSquare();
-    act.cmdExec = 0;
     setTimeout(nextCommand,100);
+    }
   });
   
   ge('cdelete').addEventListener('click',restart);
@@ -471,6 +513,9 @@ function init(){
   ge('cstop').addEventListener('click',function(){
       stop();
   });
+  for (let i=0; i<28; i++){
+    ge('cell'+i.toString()).onclick = function(){runFast(i)};
+  }
 }
 
 window.onerror = onError;
@@ -495,3 +540,4 @@ function changeGrid(){
 
   ge('stage').style.backgroundImage = imurl;
 }
+
