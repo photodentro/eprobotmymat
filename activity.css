@@ -130,7 +130,7 @@ body {
   cursor:pointer;
 }
 
-#cpause{
+#cstop{
   width:80%;
   margin-top:1em;
   cursor:pointer;  
@@ -166,6 +166,7 @@ body {
   padding:0.1em;
 	height: 3.9em;
 	width: 3.9em;
+	text-align: center;
 }
 
 .cell img{

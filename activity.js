@@ -101,7 +101,8 @@ const FD = 0
 const RT = 1
 const BK = 2
 const LT = 3
-let act = {};
+var act = {};
+var inter,inter1,inter2;
 
 const allCommands = 28;
 function showCommand(cmdCode,cell){
@@ -117,6 +118,7 @@ function showCommand(cmdCode,cell){
 }
 
 function highlightCommand(i){
+  //highlightCommand(-1) highlights none
   for (var cell = 0; cell<allCommands; cell++){
       ge('cell'+cell.toString()).classList.remove('cellHighlight');
     }
@@ -128,6 +130,7 @@ function highlightCommand(i){
 
 function bindCommand(cmdName,cmdCode){
   ge(cmdName).onclick = function(event){
+    if (!act.play)//only add command if not in play
     if (act.numOfCommands<=allCommands){
       cell = act.numOfCommands;
     	act.numOfCommands++;
@@ -182,24 +185,25 @@ function animationNo(curPos,dir,hor){
   var diff = (endPos - startPos)/5;
   let i=0; 
   inter1 = setInterval(function(){
-      console.log(startPos.toString()+endPos.toString())
-      if (Math.abs((startPos + i*diff - endPos)) < 0.01){
-        if (hor){
-          ge('eprobot').style.marginLeft = sformat("{}em",endPos);
+      if (act.play){
+        if (Math.abs((startPos + i*diff - endPos)) < 0.01){
+          if (hor){
+            ge('eprobot').style.marginLeft = sformat("{}em",endPos);
+          }
+          else{
+            ge('eprobot').style.marginTop = sformat("{}em",endPos);
+          }
+          clearInterval(inter1);
         }
         else{
-          ge('eprobot').style.marginTop = sformat("{}em",endPos);
-        }
-        clearInterval(inter1);
+          if (hor){
+            ge('eprobot').style.marginLeft = sformat("{}em",startPos + i*diff);
+          }
+          else{
+           ge('eprobot').style.marginTop = sformat("{}em",startPos + i*diff); 
+          }
+          i++;
       }
-      else{
-        if (hor){
-          ge('eprobot').style.marginLeft = sformat("{}em",startPos + i*diff);
-        }
-        else{
-         ge('eprobot').style.marginTop = sformat("{}em",startPos + i*diff); 
-        }
-        i++;
     }
   },100);
   setTimeout(function(){
@@ -208,7 +212,7 @@ function animationNo(curPos,dir,hor){
   endPos = curPos;
   diff = (endPos - startPos) / 5;
   inter2 = setInterval(function(){
-      console.log(startPos.toString()+endPos.toString())
+    if (act.play){
       if (Math.abs((startPos + i*diff - endPos)) < 0.01){
         if (hor){
           ge('eprobot').style.marginLeft = sformat("{}em",endPos);
@@ -221,9 +225,6 @@ function animationNo(curPos,dir,hor){
           act.cmdExec += 1
           setTimeout(nextCommand,100);
         }
-        else{
-          highlightCommand(-1);
-        }
       }
       else{
         if (hor){
@@ -234,7 +235,8 @@ function animationNo(curPos,dir,hor){
         }
         i++;
     }
-  },100);
+  }
+},100);
 },500);
 
 
@@ -251,7 +253,7 @@ function animationSi(startPos,endPos,hor){
   var diff = (endPos - startPos)/10;
   let i=0; 
   inter = setInterval(function(){
-      console.log(startPos.toString()+endPos.toString())
+    if (act.play){
       if (Math.abs((startPos + i*diff - endPos)) < 0.01){
         if (hor){
           ge('eprobot').style.marginLeft = sformat("{}em",endPos);
@@ -264,9 +266,6 @@ function animationSi(startPos,endPos,hor){
           act.cmdExec += 1
           setTimeout(nextCommand,100);
         }
-        else{
-          highlightCommand(-1);
-        }
       }
       else{
         if (hor){
@@ -277,7 +276,8 @@ function animationSi(startPos,endPos,hor){
         }
         i++;
     }
-  },100);
+  }
+},100);
 }
 function animationAn(startAngle,endAngle,clock){
   /*angle animation startAngle and endAngle are in FD,LT,RT,BK format*/
@@ -305,7 +305,6 @@ function animationAn(startAngle,endAngle,clock){
   let i=0; 
   inter = setInterval(function(){
       newAngle = startAngleDeg + i*diff;
-      console.log(startAngleDeg,i,diff,newAngle,endAngleDeg,startAngleDeg + i*diff - endAngleDeg);
       if (Math.abs((360 + startAngleDeg + i*diff)%360 - endAngleDeg) < 0.01){
         ge('eprobot').style.transform = sformat('rotate({}deg)',endAngleDeg);
         clearInterval(inter);
@@ -315,6 +314,7 @@ function animationAn(startAngle,endAngle,clock){
         }
         else{
           highlightCommand(-1);
+          act.play = false;
         }
       }
       else{
@@ -358,56 +358,79 @@ function moveLeft(){
 }
 
 function nextCommand(){
-  cmdCode = act.program[act.cmdExec];
-  highlightCommand(act.cmdExec);
-  switch (cmdCode){
-    case FD:
-      switch (act.orientation){
-        case FD: moveUp(); break;
-        case RT: moveRight(); break;
-        case LT: moveLeft(); break;
-        case BK: moveDown(); break;
+  if (act.play){
+    cmdCode = act.program[act.cmdExec];
+    if (act.cmdExec<act.program.length)
+      {highlightCommand(act.cmdExec);
       }
-    break;
-    case BK:
-      switch (act.orientation){
-        case FD: moveDown(); break;
-        case RT: moveLeft(); break;
-        case LT: moveRight(); break;
-        case BK: moveUp(); break;
-      }    
-    break;
-    case RT:
-      var startAngle = act.orientation;
-      act.orientation = (act.orientation + 1) % 4;
-      var endAngle = act.orientation;
-      animationAn(startAngle,endAngle,true);
-    break;
-    case LT:
-      var startAngle = act.orientation;
-      act.orientation = (act.orientation + 3) % 4;
-      var endAngle = act.orientation;
-      animationAn(startAngle,endAngle,false);
-    break;
+    else{
+      highlightCommand(-1);
+      act.play = false;
+    }
+    switch (cmdCode){
+      case FD:
+        switch (act.orientation){
+          case FD: moveUp(); break;
+          case RT: moveRight(); break;
+          case LT: moveLeft(); break;
+          case BK: moveDown(); break;
+        }
+      break;
+      case BK:
+        switch (act.orientation){
+          case FD: moveDown(); break;
+          case RT: moveLeft(); break;
+          case LT: moveRight(); break;
+          case BK: moveUp(); break;
+        }    
+      break;
+      case RT:
+        var startAngle = act.orientation;
+        act.orientation = (act.orientation + 1) % 4;
+        var endAngle = act.orientation;
+        animationAn(startAngle,endAngle,true);
+      break;
+      case LT:
+        var startAngle = act.orientation;
+        act.orientation = (act.orientation + 3) % 4;
+        var endAngle = act.orientation;
+        animationAn(startAngle,endAngle,false);
+      break;
+    }
   }
 }
 
 function restart(){
+    act = {
+      numOfCommands: 0,
+      program: [],
+      position: [0,4],
+      orientation: FD,
+      cmdExec: 0,
+      play: false,//play means that the program is executed but may be it is paused
+      pause: false,
+    }
+    setOrientation();
+    setSquare();
+    deleteProgram();
+    highlightCommand(-1);//-1 means none
+}
 
-  act = {
-    numOfCommands: 0,
-    program: [],
-    position: [0,4],
-    orientation: FD,
-    cmdExec: 0,
-    play: false,//play means that the program is executed but may be it is paused
-    pause: false,
-  }
+function stop(){
+  act.position = [0,4];
+  act.orientation = FD;
+  act.cmdExec = 0;
+  act.play = false;//play means that the program is executed but may be it is paused
+  act.pause = false;
   setOrientation();
   setSquare();
-  deleteProgram();
   highlightCommand(-1);//-1 means none
+  clearInterval(inter);
+  clearInterval(inter1);
+  clearInterval(inter2);
 }
+
+
 
 function init(){
   // Internal level number is zero-based; but we display it as 1-based.
@@ -441,17 +464,12 @@ function init(){
     setSquare();
     act.cmdExec = 0;
     setTimeout(nextCommand,100);
-    setTimeout(function(){
-      highlightCommand(-1);//highlight none
-    },(act.program.length+1)*1200);
   });
   
   ge('cdelete').addEventListener('click',restart);
 
-  ge('cpause').addEventListener('click',function(){
-    if (act.play){//pause when not playing does nothing
-
-    }
+  ge('cstop').addEventListener('click',function(){
+      stop();
   });
 }
 
