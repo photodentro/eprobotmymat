@@ -465,7 +465,7 @@ function runFast(currentCommand){
         break;
       }
     }
-    setSquare();
+      setSquare();
     setOrientation();
     act.cmdExec = i;
     highlightCommand(i-1);
@@ -531,7 +531,8 @@ if (document.readyState === 'loading') {
 function changeGrid(){
   var grids = {"empty":"resource/grid.svg",
                "alpha":"resource/alphabet.svg",
-               "dice":"resource/dice.svg"}
+               "dice":"resource/dice.svg",
+               "school":"resource/school.svg"}
   var s = ge('sel');
   var i = s.selectedIndex;
   var sv = s.options[i].value;
