@@ -104,7 +104,7 @@ const LT = 3
 var act = {};
 var inter,inter1,inter2;
 
-const allCommands = 28;
+const allCommands = 20;
 function showCommand(cmdCode,cell){
   var idSuffix = ['fd','rt','bk','lt'];
   for (var i=0; i<4; i++){//for all cmdCodes
@@ -131,7 +131,7 @@ function highlightCommand(i){
 function bindCommand(cmdName,cmdCode){
   ge(cmdName).onclick = function(event){
     if (!act.play)//only add command if not in play
-    if (act.numOfCommands<=allCommands){
+    if (act.numOfCommands<allCommands){
       cell = act.numOfCommands;
     	act.numOfCommands++;
       showCommand(cmdCode,cell);
@@ -513,7 +513,7 @@ function init(){
   ge('cstop').addEventListener('click',function(){
       stop();
   });
-  for (let i=0; i<28; i++){
+  for (let i=0; i<allCommands; i++){
     ge('cell'+i.toString()).onclick = function(){runFast(i)};
   }
 }

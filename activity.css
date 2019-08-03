@@ -165,17 +165,19 @@ body {
 	display: inline-block;
   margin-left:0.1em;
   margin-top:0.1em;
-  
-	height: 3.9em;
+	height: 2.85em;
 	width: 3.9em;
 	text-align: center;
 	cursor:pointer;
+  vertical-align: middle;
 }
+
 
 .cell img{
   margin-left: -0.1em;
-  height: 3.8em;
-  width: 3.8em;
+  height: 100%;
+  max-width:70%;
+  vertical-align: middle;
   filter: hue-rotate(210deg) brightness(140%);
 }
 
