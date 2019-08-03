@@ -11,9 +11,9 @@ SPDX-License-Identifier: CC-BY-SA-4.0
   -ms-user-select: none;
   user-select: none;
   overflow: hidden;
-/*  border-style: dotted;
+  border-style: dotted;
   border-width:1px;
-  border-color: red;*/
+  border-color: red;
 }
 
 html, body {  /* flexbox needs this to center the main div */
@@ -43,7 +43,7 @@ body {
   width: 64em;
   /*text-align: center;*/
   overflow: hidden;
-  padding-top: 1.5em;  /* workaround to avoid space-evenly */
+  padding-top: 0.5em;  /* workaround to avoid space-evenly */
   padding-bottom: 7em;  /* space for the menubar */
   display: block;
   align-content: space-around;
@@ -68,7 +68,8 @@ body {
   display:block;
   text-align:left;
   height:3.6em;
-  width:14em;
+  width:10em;
+  margin-bottom: 2em;
   color:black;
   font-size:1em;
 }
@@ -77,14 +78,14 @@ body {
   float:left;
   overflow: auto;
   margin-left: 0.3em;
-  width:15em;
+  width:10em;
   text-align:center;
 }
 #bottom{
   display:inline-block;
   float:left;
   overflow: auto;
-  width:15em;
+  width:10em;
 }
 #cforward{
 	height:4em;
@@ -107,21 +108,21 @@ body {
   display:inline-block;
   float:left;
   overflow: auto;
-  width:15em;
+  width:10em;
 }
 #middle{
   background-color:#ffffff77;
   display:inline-block;
   float:left;
   overflow: auto;
-  width:15em;
+  width:10em;
 }
 #down{
   background-color:#ffffff77;	
   display:inline-block;
   float:left;
   overflow: auto;
-  width:15em;
+  width:10em;
 }
 
 #cgo{
@@ -144,7 +145,7 @@ body {
   background-color:#00000077;
   display:inline-block;
   height: 32em;
-  width: 17em;
+  width: 9em;
   display:inline-block;
   margin-left:0.4em;
   margin-right:0.4em;
@@ -190,8 +191,8 @@ body {
   display:inline-block;
   margin-bottom: 1.5em;
   margin-right:0.5em;
-  height: 30em;
-  width:30em;
+  height: 30.1em;
+  width:42em;
 }
 #grid{
 	width:100%;

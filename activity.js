@@ -341,7 +341,7 @@ function moveDown(){
   }
 }
 function moveRight(){
-  if (act.position[0] < 4){
+  if (act.position[0] < 6){//grid is 6 cells wide
     animationSi(act.position[0]*6,(++act.position[0])*6,true);
   }
   else{
@@ -444,7 +444,7 @@ function runFast(currentCommand){
         case FD:
           switch (act.orientation){
             case FD: if (act.position[1]>0) act.position[1]--; break;
-            case RT: if (act.position[0]<4) act.position[0]++; break;
+            case RT: if (act.position[0]<6) act.position[0]++; break;//grid is 6 cells wide
             case LT: if (act.position[0]>0) act.position[0]--; break;
             case BK: if (act.position[1]<4) act.position[1]++; break;
           }
@@ -453,7 +453,7 @@ function runFast(currentCommand){
           switch (act.orientation){
             case FD: if (act.position[1]<4) act.position[1]++; break;
             case RT: if (act.position[0]>0) act.position[0]--; break;
-            case LT: if (act.position[0]<4) act.position[0]++; break;
+            case LT: if (act.position[0]<6) act.position[0]++; break;//grid is 6 cells wide
             case BK: if (act.position[1]>0) act.position[1]--; break;
           }    
         break;
