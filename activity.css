@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2018 Alkis Georgopoulos <alkisg@gmail.com>.
+Copyright (C) 2019 Dimitris Nikolos <dnikolos@gmail.com>
 SPDX-License-Identifier: CC-BY-SA-4.0
 */
 * {
@@ -11,9 +11,9 @@ SPDX-License-Identifier: CC-BY-SA-4.0
   -ms-user-select: none;
   user-select: none;
   overflow: hidden;
-  border-style: dotted;
+/*  border-style: dotted;
   border-width:1px;
-  border-color: red;
+  border-color: red;*/
 }
 
 html, body {  /* flexbox needs this to center the main div */
