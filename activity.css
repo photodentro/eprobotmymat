@@ -165,8 +165,7 @@ body {
 	display: inline-block;
   margin-left:0.1em;
   margin-top:0.1em;
-  
-	height: 3.9em;
+	height: 2.5em;
 	width: 3.9em;
 	text-align: center;
 	cursor:pointer;
@@ -174,8 +173,7 @@ body {
 
 .cell img{
   margin-left: -0.1em;
-  height: 3.8em;
-  width: 3.8em;
+  height: 100%;
   filter: hue-rotate(210deg) brightness(140%);
 }
 
