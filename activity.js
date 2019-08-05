@@ -110,6 +110,7 @@ function showCommand(cmdCode,cell){
   for (var i=0; i<4; i++){//for all cmdCodes
     if (i==cmdCode){
       ge('cell'+cell.toString()+idSuffix[i]).style.display = '';
+
     }
     else{
       ge('cell'+cell.toString()+idSuffix[i]).style.display = 'none';
@@ -130,23 +131,62 @@ function highlightCommand(i){
 
 function bindCommand(cmdName,cmdCode){
   ge(cmdName).onclick = function(event){
-    if (!act.play)//only add command if not in play
-    if (act.numOfCommands<allCommands){
-      cell = act.numOfCommands;
-    	act.numOfCommands++;
-      showCommand(cmdCode,cell);
-      act.program.push(cmdCode);
+    if (!act.play){//only add command if not in play
+    if (act.selected==-1){
+      if (act.program.length<allCommands){
+        cell = act.program.length;
+        showCommand(cmdCode,cell);
+        act.program.push(cmdCode);
+      }
+    }
+    else{
+    	cell = act.selected + 1;
+    	act.program.splice(cell,0,cmdCode);//insert cmdCode in index cell
+    	for (var i=cell; i<act.program.length; i++){
+    		showCommand(act.program[i],i);
+    	}
     }
   }
+}
 }
 
 function deleteProgram(){
   var idSuffix = ['fd','rt','bk','lt'];
   act.program = [];
-  for (var cell=0; cell<allCommands; cell++){
+  for (var cell=act.program.length; cell<allCommands; cell++){
     for (var i=0; i<4; i++){
          ge('cell'+cell.toString()+idSuffix[i]).style.display = 'none';
     }    
+  }
+}
+
+function deleteCommand(cmdNum){
+  var idSuffix = ['fd','rt','bk','lt'];
+  act.program.splice(cmdNum,1);
+  for (var cell=0; cell<act.program.length; cell++){
+  	showCommand(act.program[cell],cell);
+  }
+  for (var cell=act.program.length; cell<allCommands; cell++){
+    for (var i=0; i<4; i++){
+         ge('cell'+cell.toString()+idSuffix[i]).style.display = 'none';
+    }    
+  }
+  if (cmdNum>0){
+  	highlightCommand(cmdNum-1);
+  	runFast(cmdNum-1);
+  	act.cmdExec = cmdNum-1;
+  	act.selected = cmdNum-1;
+  }
+  else{//go to start without deleting the program
+	act.position = [0,4];
+	act.orientation = FD;
+	act.cmdExec =  0;
+	act.play = false;
+	act.pause = false;
+	act.selected = -1;
+    setOrientation();
+    setSquare();
+  	highlightCommand(-1);
   }
 }
 
@@ -315,6 +355,7 @@ function animationAn(startAngle,endAngle,clock){
         else{
           highlightCommand(-1);
           act.play = false;
+          act.selected = -1;
         }
       }
       else{
@@ -371,6 +412,7 @@ function nextCommand(){
       act.cmdExec = 0;
       act.position = [0,4];
       act.orientation = FD;
+      act.selected = -1;
     }
     switch (cmdCode){
       case FD:
@@ -407,13 +449,13 @@ function nextCommand(){
 
 function restart(){
     act = {
-      numOfCommands: 0,
       program: [],
       position: [0,4],
       orientation: FD,
       cmdExec: 0,
       play: false,//play means that the program is executed but may be it is paused
       pause: false,
+      selected: -1,
     }
     setOrientation();
     setSquare();
@@ -427,6 +469,7 @@ function stop(){
   act.cmdExec = 0;
   act.play = false;//play means that the program is executed but may be it is paused
   act.pause = false;
+  act.selected = -1;
   setOrientation();
   setSquare();
   highlightCommand(-1);//-1 means none
@@ -508,13 +551,21 @@ function init(){
     }
   });
   
-  ge('cdelete').addEventListener('click',restart);
+  ge('cdelete').addEventListener('click',function(){
+  	console.log(act.selected);
+  	if (act.selected==-1){
+  		restart();
+  	}
+  	else{
+  		deleteCommand(act.selected);
+  	}
+  });
 
   ge('cstop').addEventListener('click',function(){
       stop();
   });
   for (let i=0; i<allCommands; i++){
-    ge('cell'+i.toString()).onclick = function(){runFast(i)};
+    ge('cell'+i.toString()).onclick = function(){runFast(i); act.selected = i; console.log(act.selected);};
   }
 }
 
