@@ -23,11 +23,25 @@ SPDX-License-Identifier: CC-BY-SA-4.0
       Επιλογή δαπέδου:
       <select id ="sel" onchange="changeGrid();">
         <option value="empty">Κενό</option>
-        <option value="dice">Ζάρι</option>
         <option value="alpha">Αλφαβήτα</option>
+        <option value="dice">Ζάρι</option>
+        <option value="instr">Μουσικά όργανα</option>
+        <option value="toys">Παιχνίδια</option>
+        <option value="signs">Σήματα κυκλοφορίας</option>
+        <option value="shapes">Σχήματα</option>
         <option value="school">Σχολείο</option>
+        <option value="colors">Χρώματα</option>
       </select>
     </div>
+    <div id = "chars">
+      Επιλογή χαρακτήρα:
+      <select id ="selchar" onchange="changeChar();">
+        <option value="ladybug">Πασχαλίτσα</option>
+        <option value="car">Αυτοκίνητο</option>
+        <option value="student">Μαθητής</option>
+      </select>
+    </div>
+ 
   	<div id = "up">
   		<img id="cforward" src="./resource/beebot-fd.svg"/>
   	</div>
@@ -169,7 +183,7 @@ SPDX-License-Identifier: CC-BY-SA-4.0
   </div>
     
   <div id="stage">
-      <img id="eprobot" src="./resource/eprobot.svg">
+      <img id="eprobot" src="./resource/ladybug.svg">
   </div>
 
   <div id="menubar">
@@ -181,7 +195,15 @@ SPDX-License-Identifier: CC-BY-SA-4.0
    </div>
 <div id="help"><div class="dialog">Σχημάτισε το πρόγραμμα με τα μπλε βελάκια και εκτέλεσέ το με το κουμπί εκτέλεσης.</div>
 </div>
-<img src="resource/school.svg" style="display:none">
-<img src="resource/alphabet.svg" style="display:none">
+
+<img src="resource/grid.svg" style="display:none;"/>
+<img src="resource/alphabet.svg" style="display:none;"/>
+<img src="resource/dice.svg" style="display:none;"/>
+<img src="resource/school.svg" style="display:none;"/>
+<img src="resource/instr.svg" style="display:none;"/>
+<img src="resource/toys.svg" style="display:none;"/>
+<img src="resource/signs.svg" style="display:none;"/>
+<img src="resource/shapes.svg" style="display:none;"/>
+<img src="resource/colors.svg" style="display:none;"/>
 </body>
 </html>

@@ -7,13 +7,25 @@ bar_home.svg
 bar_next.svg
 bar_previous.svg
 
+Copyright: 2018 Georgios Piskopanis
+grid.svg"
+Copyright: 2018 Georgios Piskopanis Freepik
+alphabet.svg
+dice.svg
+school.svg
+instr.svg
+toys.svg
+signs.svg
+shapes.svg
+colors.svg
+
+
 Copyright: 2018 Artemis Gergopoulou, Georgios Piskopanis
 License: CC BY-NC-SA 4.0
 bar_fullscreen.svg
 
 Freepik
 background.svg
-alphabet.svg
 beebot-bk.svg
 beebot-de.svg
 beebot-fd.svg
@@ -21,10 +33,3 @@ beebot-go.svg
 beebot-lt.svg
 beebot-pa.svg
 beebot-rt.svg
-dice.svg
-eprobot.svg
-school.svg
-
-Copyright: 2019 Dimitris Nikolos
-License: CC BY-NC-SA 4.0
-grid.svg

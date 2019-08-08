@@ -1,0 +1,703 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="none" x="0px" y="0px" width="857px" height="602px" viewBox="0 0 857 602">
+<defs>
+<g id="Symbol_4_0_Layer0_0_FILL">
+<path fill="#444444" stroke="none" d="
+M 151.25 -75.8
+Q 151.1052734375 -75.9482421875 150.9 -75.95
+L 0 -75.95
+Q -0.2052734375 -75.9482421875 -0.35 -75.8 -0.4982421875 -75.6552734375 -0.5 -75.45
+L -0.5 75.45
+Q -0.4982421875 75.6552734375 -0.35 75.8 -0.2052734375 75.9482421875 0 75.95
+L 150.9 75.95
+Q 151.1052734375 75.9482421875 151.25 75.8 151.3982421875 75.6552734375 151.4 75.45
+L 151.4 -75.45
+Q 151.3982421875 -75.6552734375 151.25 -75.8
+M 0.5 -74.95
+L 150.4 -74.95 150.4 74.95 0.5 74.95 0.5 -74.95 Z"/>
+
+<path fill="#F8E8CE" stroke="none" d="
+M 150.4 -74.95
+L 0.5 -74.95 0.5 74.95 150.4 74.95 150.4 -74.95
+M 149.65 -74.4
+L 149.65 -74.2 149.85 -74.4 149.85 74.2 1.5 74.2 1.25 74.2 1.25 -74.4 149.65 -74.4 Z"/>
+
+<path fill="#FFFFFF" stroke="none" d="
+M 143.2 -67.65
+L 149.65 -74.2 149.65 -74.4 1.25 -74.4 1.25 74.2 1.5 74.2 8 67.75 8 -67.65 143.2 -67.65 Z"/>
+
+<path fill="#AAAAAA" stroke="none" d="
+M 143.2 -67.65
+L 143.1 -67.55 143.1 67.45 8.35 67.45 8 67.75 1.5 74.2 149.85 74.2 149.85 -74.4 149.65 -74.2 143.2 -67.65 Z"/>
+
+<path fill="#E5E5E5" stroke="none" d="
+M 143.1 -67.55
+L 143.2 -67.65 8 -67.65 8 67.75 8.35 67.45 143.1 67.45 143.1 -67.55 Z"/>
+</g>
+
+<g id="Symbol_11_0_Layer0_36_FILL">
+<path fill="#F0C419" stroke="none" d="
+M 514.2 37.3
+Q 514.2 27.55 504.45 27.55
+L 436.9 27.55
+Q 427.15 27.55 427.15 37.3
+L 427.15 105.7
+Q 427.15 115.45 436.9 115.45
+L 504.45 115.45
+Q 514.2 115.45 514.2 105.7
+L 514.2 37.3 Z"/>
+</g>
+
+<g id="Symbol_6_0_Layer0_0_FILL">
+<path fill="#F29C1F" stroke="none" d="
+M 32.9 -32.9
+Q 19.3 -32.9 9.65 -23.25 0 -13.6 0 0 0 13.55 9.65 23.2 19.3 32.85 32.9 32.85 46.45 32.85 56.1 23.2 65.75 13.55 65.75 0 65.75 -13.6 56.1 -23.25 46.45 -32.9 32.9 -32.9 Z"/>
+</g>
+
+<g id="Symbol_11_0_Layer0_38_FILL">
+<path fill="#FA7766" stroke="none" d="
+M 514.2 37.3
+Q 514.2 27.55 504.45 27.55
+L 436.9 27.55
+Q 427.15 27.55 427.15 37.3
+L 427.15 105.7
+Q 427.15 115.45 436.9 115.45
+L 504.45 115.45
+Q 514.2 115.45 514.2 105.7
+L 514.2 37.3 Z"/>
+</g>
+
+<g id="Symbol_11_0_Layer0_39_FILL">
+<path fill="#73CFE4" stroke="none" d="
+M 514.2 37.3
+Q 514.2 27.55 504.45 27.55
+L 436.9 27.55
+Q 427.15 27.55 427.15 37.3
+L 427.15 105.7
+Q 427.15 115.45 436.9 115.45
+L 504.45 115.45
+Q 514.2 115.45 514.2 105.7
+L 514.2 37.3 Z"/>
+</g>
+
+<g id="Symbol_11_0_Layer0_40_FILL">
+<path fill="#A4E869" stroke="none" d="
+M 514.2 37.3
+Q 514.2 27.55 504.45 27.55
+L 436.9 27.55
+Q 427.15 27.55 427.15 37.3
+L 427.15 105.7
+Q 427.15 115.45 436.9 115.45
+L 504.45 115.45
+Q 514.2 115.45 514.2 105.7
+L 514.2 37.3 Z"/>
+</g>
+
+<g id="Symbol_11_0_Layer0_41_FILL">
+<path fill="#F0C419" stroke="none" d="
+M 514.2 37.3
+Q 514.2 27.55 504.45 27.55
+L 436.9 27.55
+Q 427.15 27.55 427.15 37.3
+L 427.15 105.7
+Q 427.15 115.45 436.9 115.45
+L 504.45 115.45
+Q 514.2 115.45 514.2 105.7
+L 514.2 37.3 Z"/>
+</g>
+
+<g id="Symbol_7_0_Layer0_0_FILL">
+<path fill="#DF4D60" stroke="none" d="
+M 6.25 30.45
+L 67.15 30.45 36.7 -30.45 6.25 30.45 Z"/>
+</g>
+
+<g id="Symbol_8_0_Layer0_0_FILL">
+<path fill="#4FBA6F" stroke="none" d="
+M 32.6 -11.95
+L 8.25 -7.95 25.7 9.5 21.2 34.75 44 22.9 66.55 34.75 62.1 9.5 79.75 -7.95 55.15 -11.95 44 -34.75 32.6 -11.95 Z"/>
+</g>
+
+<g id="Symbol_9_0_Layer0_0_FILL">
+<path fill="#48A0DC" stroke="none" d="
+M 0 0.1
+L 38.05 37.9 76.1 0.1 38.05 -37.95 0 0.1 Z"/>
+</g>
+
+<g id="Symbol_11_0_Layer0_45_FILL">
+<path fill="#A4E869" stroke="none" d="
+M 514.2 37.3
+Q 514.2 27.55 504.45 27.55
+L 436.9 27.55
+Q 427.15 27.55 427.15 37.3
+L 427.15 105.7
+Q 427.15 115.45 436.9 115.45
+L 504.45 115.45
+Q 514.2 115.45 514.2 105.7
+L 514.2 37.3 Z"/>
+</g>
+
+<g id="Symbol_11_0_Layer0_46_FILL">
+<path fill="#F0C419" stroke="none" d="
+M 514.2 37.3
+Q 514.2 27.55 504.45 27.55
+L 436.9 27.55
+Q 427.15 27.55 427.15 37.3
+L 427.15 105.7
+Q 427.15 115.45 436.9 115.45
+L 504.45 115.45
+Q 514.2 115.45 514.2 105.7
+L 514.2 37.3 Z"/>
+</g>
+
+<g id="Symbol_11_0_Layer0_47_FILL">
+<path fill="#F29C1F" stroke="none" d="
+M 805.4 -259.05
+L 760.9 -233.4 760.9 -182.05 805.4 -156.4 849.85 -182.05 849.85 -233.4 805.4 -259.05 Z"/>
+</g>
+
+<g id="Symbol_11_0_Layer0_48_FILL">
+<path fill="#A4E869" stroke="none" d="
+M 514.2 37.3
+Q 514.2 27.55 504.45 27.55
+L 436.9 27.55
+Q 427.15 27.55 427.15 37.3
+L 427.15 105.7
+Q 427.15 115.45 436.9 115.45
+L 504.45 115.45
+Q 514.2 115.45 514.2 105.7
+L 514.2 37.3 Z"/>
+</g>
+
+<g id="Symbol_11_0_Layer0_49_FILL">
+<path fill="#E64C3C" stroke="none" d="
+M 740.55 -198.85
+L 677.5 -198.85 677.5 -135.8 740.55 -135.8 740.55 -198.85 Z"/>
+</g>
+
+<g id="Symbol_11_0_Layer0_50_FILL">
+<path fill="#A4E869" stroke="none" d="
+M 514.2 37.3
+Q 514.2 27.55 504.45 27.55
+L 436.9 27.55
+Q 427.15 27.55 427.15 37.3
+L 427.15 105.7
+Q 427.15 115.45 436.9 115.45
+L 504.45 115.45
+Q 514.2 115.45 514.2 105.7
+L 514.2 37.3 Z"/>
+</g>
+
+<g id="Symbol_11_0_Layer0_51_FILL">
+<path fill="#73CFE4" stroke="none" d="
+M 514.2 37.3
+Q 514.2 27.55 504.45 27.55
+L 436.9 27.55
+Q 427.15 27.55 427.15 37.3
+L 427.15 105.7
+Q 427.15 115.45 436.9 115.45
+L 504.45 115.45
+Q 514.2 115.45 514.2 105.7
+L 514.2 37.3 Z"/>
+</g>
+
+<g id="Symbol_11_0_Layer0_52_FILL">
+<path fill="#F0C419" stroke="none" d="
+M 514.2 37.3
+Q 514.2 27.55 504.45 27.55
+L 436.9 27.55
+Q 427.15 27.55 427.15 37.3
+L 427.15 105.7
+Q 427.15 115.45 436.9 115.45
+L 504.45 115.45
+Q 514.2 115.45 514.2 105.7
+L 514.2 37.3 Z"/>
+</g>
+
+<g id="Symbol_10_0_Layer0_0_FILL">
+<path fill="#E64C3C" stroke="none" d="
+M 12.4 -30.65
+Q 4.3 -27.35 1.3 -18.8 -1.7 -10.35 2.1 -2.25 10.35 15.25 33.65 32 57.1 15.2 65.3 -2.25 69.05 -10.35 66.1 -18.75 63.1 -27.35 55 -30.6 47 -33.85 39.5 -29.15 37.2 -27.7 35.15 -25.6
+L 33.65 -23.8
+Q 31.55 -26.8 27.85 -29.2 20.4 -33.9 12.4 -30.65 Z"/>
+</g>
+
+<g id="Symbol_11_0_Layer0_54_FILL">
+<path fill="#4FBA6F" stroke="none" d="
+M 1020.8 -103.15
+L 1034.3 -144.7 998.9 -170.4 963.55 -144.7 977.05 -103.15 1020.8 -103.15 Z"/>
+</g>
+
+<g id="Symbol_11_0_Layer0_55_FILL">
+<path fill="#FDDD3A" stroke="none" d="
+M 238.9 69.75
+L 177.7 175.75 238.9 211.1 238.9 69.75 Z"/>
+</g>
+
+<g id="Symbol_11_0_Layer0_56_FILL">
+<path fill="#FFF235" stroke="none" d="
+M 300.05 175.75
+L 238.9 69.75 238.9 211.1 300.05 175.75 Z"/>
+</g>
+
+<g id="Symbol_11_0_Layer0_57_FILL">
+<path fill="#F6CA14" stroke="none" d="
+M 238.9 140.4
+L 177.7 175.75 238.9 211.1 300.05 175.75 238.9 140.4 Z"/>
+</g>
+
+<g id="Symbol_11_0_Layer0_58_FILL">
+<path fill="#EE5A9C" stroke="none" d="
+M 145.3 227.05
+L 86.45 261.05 86.45 329 145.3 362.95 204.15 329 204.15 261.05 145.3 227.05 Z"/>
+</g>
+
+<g id="Symbol_11_0_Layer0_59_FILL">
+<path fill="#E43C90" stroke="none" d="
+M 86.45 329
+L 145.3 362.95 204.15 329 145.3 295 86.45 329 Z"/>
+</g>
+
+<g id="Symbol_11_0_Layer0_60_FILL">
+<path fill="#EF6EA8" stroke="none" d="
+M 145.3 227.05
+L 145.3 295 204.15 329 204.15 261.05 145.3 227.05 Z"/>
+</g>
+
+<g id="Symbol_11_0_Layer0_61_FILL">
+<path fill="#1CADE3" stroke="none" d="
+M 384.3 265
+Q 370.25 245.4 346.45 241.5 322.65 237.65 303.05 251.7 283.5 265.75 279.6 289.55 275.7 313.35 289.75 332.95 303.85 352.5 327.65 356.4 351.45 360.3 371 346.25 390.6 332.15 394.45 308.35 398.35 284.55 384.3 265 Z"/>
+</g>
+
+<g id="Symbol_11_0_Layer0_62_FILL">
+<path fill="#0099DC" stroke="none" d="
+M 378.2 340.1
+Q 395.25 323.05 395.25 298.95 395.25 289 392 279.65 385.95 296.9 371.05 307.6 355.85 318.55 337.05 318.55 318.25 318.55 303.1 307.6 288.2 296.9 282.15 279.65 278.85 288.95 278.85 298.95 278.85 323.05 295.9 340.1 312.95 357.15 337.05 357.15 361.15 357.15 378.2 340.1 Z"/>
+</g>
+</defs>
+
+<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+<g transform="matrix( 0.80828857421875, 0, 0, 0.80828857421875, 0.4,62.75) ">
+<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+<use xlink:href="#Symbol_4_0_Layer0_0_FILL"/>
+</g>
+</g>
+
+<g transform="matrix( 0.80828857421875, 0, 0, 0.80828857421875, 728.95,420.55) ">
+<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+<use xlink:href="#Symbol_4_0_Layer0_0_FILL"/>
+</g>
+</g>
+
+<g transform="matrix( 0.80828857421875, 0, 0, 0.80828857421875, 245.3,62.75) ">
+<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+<use xlink:href="#Symbol_4_0_Layer0_0_FILL"/>
+</g>
+</g>
+
+<g transform="matrix( 0.80828857421875, 0, 0, 0.80828857421875, 367.75,62.75) ">
+<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+<use xlink:href="#Symbol_4_0_Layer0_0_FILL"/>
+</g>
+</g>
+
+<g transform="matrix( 0.80828857421875, 0, 0, 0.80828857421875, 490.2,62.75) ">
+<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+<use xlink:href="#Symbol_4_0_Layer0_0_FILL"/>
+</g>
+</g>
+
+<g transform="matrix( 0.80828857421875, 0, 0, 0.80828857421875, 612.65,62.75) ">
+<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+<use xlink:href="#Symbol_4_0_Layer0_0_FILL"/>
+</g>
+</g>
+
+<g transform="matrix( 0.80828857421875, 0, 0, 0.80828857421875, 735.2,62.75) ">
+<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+<use xlink:href="#Symbol_4_0_Layer0_0_FILL"/>
+</g>
+</g>
+
+<g transform="matrix( 0.80828857421875, 0, 0, 0.80828857421875, 0.4,182.4) ">
+<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+<use xlink:href="#Symbol_4_0_Layer0_0_FILL"/>
+</g>
+</g>
+
+<g transform="matrix( 0.80828857421875, 0, 0, 0.80828857421875, 122.85,182.4) ">
+<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+<use xlink:href="#Symbol_4_0_Layer0_0_FILL"/>
+</g>
+</g>
+
+<g transform="matrix( 0.80828857421875, 0, 0, 0.80828857421875, 245.3,182.4) ">
+<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+<use xlink:href="#Symbol_4_0_Layer0_0_FILL"/>
+</g>
+</g>
+
+<g transform="matrix( 0.80828857421875, 0, 0, 0.80828857421875, 367.75,182.4) ">
+<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+<use xlink:href="#Symbol_4_0_Layer0_0_FILL"/>
+</g>
+</g>
+
+<g transform="matrix( 0.80828857421875, 0, 0, 0.80828857421875, 490.2,182.4) ">
+<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+<use xlink:href="#Symbol_4_0_Layer0_0_FILL"/>
+</g>
+</g>
+
+<g transform="matrix( 0.80828857421875, 0, 0, 0.80828857421875, 612.65,182.4) ">
+<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+<use xlink:href="#Symbol_4_0_Layer0_0_FILL"/>
+</g>
+</g>
+
+<g transform="matrix( 0.80828857421875, 0, 0, 0.80828857421875, 735.2,182.4) ">
+<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+<use xlink:href="#Symbol_4_0_Layer0_0_FILL"/>
+</g>
+</g>
+
+<g transform="matrix( 0.80828857421875, 0, 0, 0.80828857421875, 0.4,302) ">
+<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+<use xlink:href="#Symbol_4_0_Layer0_0_FILL"/>
+</g>
+</g>
+
+<g transform="matrix( 0.80828857421875, 0, 0, 0.80828857421875, 122.85,302) ">
+<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+<use xlink:href="#Symbol_4_0_Layer0_0_FILL"/>
+</g>
+</g>
+
+<g transform="matrix( 0.80828857421875, 0, 0, 0.80828857421875, 245.3,302) ">
+<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+<use xlink:href="#Symbol_4_0_Layer0_0_FILL"/>
+</g>
+</g>
+
+<g transform="matrix( 0.80828857421875, 0, 0, 0.80828857421875, 367.75,302) ">
+<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+<use xlink:href="#Symbol_4_0_Layer0_0_FILL"/>
+</g>
+</g>
+
+<g transform="matrix( 0.80828857421875, 0, 0, 0.80828857421875, 490.2,302) ">
+<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+<use xlink:href="#Symbol_4_0_Layer0_0_FILL"/>
+</g>
+</g>
+
+<g transform="matrix( 0.80828857421875, 0, 0, 0.80828857421875, 612.65,302) ">
+<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+<use xlink:href="#Symbol_4_0_Layer0_0_FILL"/>
+</g>
+</g>
+
+<g transform="matrix( 0.80828857421875, 0, 0, 0.80828857421875, 735.2,302) ">
+<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+<use xlink:href="#Symbol_4_0_Layer0_0_FILL"/>
+</g>
+</g>
+
+<g transform="matrix( 0.80828857421875, 0, 0, 0.80828857421875, 0.4,421.65) ">
+<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+<use xlink:href="#Symbol_4_0_Layer0_0_FILL"/>
+</g>
+</g>
+
+<g transform="matrix( 0.80828857421875, 0, 0, 0.80828857421875, 122.85,421.65) ">
+<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+<use xlink:href="#Symbol_4_0_Layer0_0_FILL"/>
+</g>
+</g>
+
+<g transform="matrix( 0.80828857421875, 0, 0, 0.80828857421875, 245.3,421.65) ">
+<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+<use xlink:href="#Symbol_4_0_Layer0_0_FILL"/>
+</g>
+</g>
+
+<g transform="matrix( 0.80828857421875, 0, 0, 0.80828857421875, 367.75,421.65) ">
+<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+<use xlink:href="#Symbol_4_0_Layer0_0_FILL"/>
+</g>
+</g>
+
+<g transform="matrix( 0.80828857421875, 0, 0, 0.80828857421875, 490.2,421.65) ">
+<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+<use xlink:href="#Symbol_4_0_Layer0_0_FILL"/>
+</g>
+</g>
+
+<g transform="matrix( 0.80828857421875, 0, 0, 0.80828857421875, 612.65,421.65) ">
+<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+<use xlink:href="#Symbol_4_0_Layer0_0_FILL"/>
+</g>
+</g>
+
+<g transform="matrix( 0.80828857421875, 0, 0, 0.80828857421875, 735.2,421.65) ">
+<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+<use xlink:href="#Symbol_4_0_Layer0_0_FILL"/>
+</g>
+</g>
+
+<g transform="matrix( 0.80828857421875, 0, 0, 0.80828857421875, 0.4,541.4) ">
+<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+<use xlink:href="#Symbol_4_0_Layer0_0_FILL"/>
+</g>
+</g>
+
+<g transform="matrix( 0.80828857421875, 0, 0, 0.80828857421875, 122.85,541.4) ">
+<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+<use xlink:href="#Symbol_4_0_Layer0_0_FILL"/>
+</g>
+</g>
+
+<g transform="matrix( 0.80828857421875, 0, 0, 0.80828857421875, 245.3,541.4) ">
+<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+<use xlink:href="#Symbol_4_0_Layer0_0_FILL"/>
+</g>
+</g>
+
+<g transform="matrix( 0.80828857421875, 0, 0, 0.80828857421875, 367.75,541.4) ">
+<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+<use xlink:href="#Symbol_4_0_Layer0_0_FILL"/>
+</g>
+</g>
+
+<g transform="matrix( 0.80828857421875, 0, 0, 0.80828857421875, 490.2,541.4) ">
+<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+<use xlink:href="#Symbol_4_0_Layer0_0_FILL"/>
+</g>
+</g>
+
+<g transform="matrix( 0.80828857421875, 0, 0, 0.80828857421875, 612.65,541.4) ">
+<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+<use xlink:href="#Symbol_4_0_Layer0_0_FILL"/>
+</g>
+</g>
+
+<g transform="matrix( 0.80828857421875, 0, 0, 0.80828857421875, 735.2,541.4) ">
+<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+<use xlink:href="#Symbol_4_0_Layer0_0_FILL"/>
+</g>
+</g>
+
+<g transform="matrix( 0.80828857421875, 0, 0, 0.80828857421875, 122.35,61.4) ">
+<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+<use xlink:href="#Symbol_4_0_Layer0_0_FILL"/>
+</g>
+</g>
+
+<g transform="matrix( 1, 0, 0, 1, 201.8,351.7) ">
+<use xlink:href="#Symbol_11_0_Layer0_36_FILL"/>
+</g>
+
+<g transform="matrix( 1, 0, 0, 1, 640.8,422.6) ">
+<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+<use xlink:href="#Symbol_6_0_Layer0_0_FILL"/>
+</g>
+</g>
+
+<g transform="matrix( 1, 0, 0, 1, 203.15,109.3) ">
+<use xlink:href="#Symbol_11_0_Layer0_38_FILL"/>
+</g>
+
+<g transform="matrix( 1, 0, 0, 1, -291,349.8) ">
+<use xlink:href="#Symbol_11_0_Layer0_39_FILL"/>
+</g>
+
+<g transform="matrix( 1, 0, 0, 1, 325.05,-7.95) ">
+<use xlink:href="#Symbol_11_0_Layer0_40_FILL"/>
+</g>
+
+<g transform="matrix( 1, 0, 0, 1, 82.1,470.7) ">
+<use xlink:href="#Symbol_11_0_Layer0_41_FILL"/>
+</g>
+
+<g transform="matrix( 1, 0, 0, 1, 636.75,179) ">
+<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+<use xlink:href="#Symbol_7_0_Layer0_0_FILL"/>
+</g>
+</g>
+
+<g transform="matrix( 1, 0, 0, 1, 751.6,62.35) ">
+<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+<use xlink:href="#Symbol_8_0_Layer0_0_FILL"/>
+</g>
+</g>
+
+<g transform="matrix( 1, 0, 0, 1, 139.6,420.35) ">
+<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+<use xlink:href="#Symbol_9_0_Layer0_0_FILL"/>
+</g>
+</g>
+
+<g transform="matrix( 1, 0, 0, 1, 78.2,230.55) ">
+<use xlink:href="#Symbol_11_0_Layer0_45_FILL"/>
+</g>
+
+<g transform="matrix( 1, 0, 0, 1, 78.85,-6.05) ">
+<use xlink:href="#Symbol_11_0_Layer0_46_FILL"/>
+</g>
+
+<g transform="matrix( 0.7231903076171875, 0, 0, 0.7231903076171875, -33.9,216.1) ">
+<use xlink:href="#Symbol_11_0_Layer0_47_FILL"/>
+</g>
+
+<g transform="matrix( 1, 0, 0, 1, -409.2,109.95) ">
+<use xlink:href="#Symbol_11_0_Layer0_48_FILL"/>
+</g>
+
+<g transform="matrix( 1, 0, 0, 1, -648.1,347.95) ">
+<use xlink:href="#Symbol_11_0_Layer0_49_FILL"/>
+</g>
+
+<g transform="matrix( 1, 0, 0, 1, -288.6,-10.25) ">
+<use xlink:href="#Symbol_11_0_Layer0_50_FILL"/>
+</g>
+
+<g transform="matrix( 1, 0, 0, 1, -38.75,111.7) ">
+<use xlink:href="#Symbol_11_0_Layer0_51_FILL"/>
+</g>
+
+<g transform="matrix( 1, 0, 0, 1, -286.6,230.1) ">
+<use xlink:href="#Symbol_11_0_Layer0_52_FILL"/>
+</g>
+
+<g transform="matrix( 1, 0, 0, 1, 518.55,543.4) ">
+<g transform="matrix( 1, 0, 0, 1, 0,0) ">
+<use xlink:href="#Symbol_10_0_Layer0_0_FILL"/>
+</g>
+</g>
+
+<g transform="matrix( 1, 0, 0, 1, -450.25,436.75) ">
+<use xlink:href="#Symbol_11_0_Layer0_54_FILL"/>
+</g>
+
+<g transform="matrix( 0.4868011474609375, 0.3249053955078125, -0.3249053955078125, 0.4868011474609375, 115.15,-86.5) ">
+<use xlink:href="#Symbol_11_0_Layer0_55_FILL"/>
+</g>
+
+<g transform="matrix( 0.4868011474609375, 0.3249053955078125, -0.3249053955078125, 0.4868011474609375, 115.15,-86.5) ">
+<use xlink:href="#Symbol_11_0_Layer0_56_FILL"/>
+</g>
+
+<g transform="matrix( 0.4868011474609375, 0.3249053955078125, -0.3249053955078125, 0.4868011474609375, 115.15,-86.5) ">
+<use xlink:href="#Symbol_11_0_Layer0_57_FILL"/>
+</g>
+
+<g transform="matrix( 0.464263916015625, 0.4179534912109375, -0.4179534912109375, 0.464263916015625, 487.55,-14.3) ">
+<use xlink:href="#Symbol_11_0_Layer0_58_FILL"/>
+</g>
+
+<g transform="matrix( 0.464263916015625, 0.4179534912109375, -0.4179534912109375, 0.464263916015625, 487.55,-14.3) ">
+<use xlink:href="#Symbol_11_0_Layer0_59_FILL"/>
+</g>
+
+<g transform="matrix( 0.464263916015625, 0.4179534912109375, -0.4179534912109375, 0.464263916015625, 487.55,-14.3) ">
+<use xlink:href="#Symbol_11_0_Layer0_60_FILL"/>
+</g>
+
+<g transform="matrix( 0.3572845458984375, 0.4866943359375, -0.4866943359375, 0.3572845458984375, 209,28.7) ">
+<use xlink:href="#Symbol_11_0_Layer0_61_FILL"/>
+</g>
+
+<g transform="matrix( 0.3572845458984375, 0.4866943359375, -0.4866943359375, 0.3572845458984375, 209,28.7) ">
+<use xlink:href="#Symbol_11_0_Layer0_62_FILL"/>
+</g>
+
+<g transform="matrix( 1, 0, 0, 1, 508.4,160) ">
+<clipPath id="Mask_Mask_1">
+<rect x="-2" y="-2" width="81.8" height="41.85" fill="#FFFFFF" stroke="none"/>
+</clipPath>
+
+<text clip-path="url(#Mask_Mask_1)" writing-mode="lr"><tspan x="0" y="29.5" baseline-shift="0%" font-family="Calibri" font-weight="bold" font-size="31" fill="#ED7179" xml:space="preserve">κύβος</tspan></text>
+</g>
+
+<g transform="matrix( 1, 0, 0, 1, 749.2,402.45) ">
+<clipPath id="Mask_Mask_2">
+<rect x="-2" y="-2" width="94.7" height="41.85" fill="#FFFFFF" stroke="none"/>
+</clipPath>
+
+<text clip-path="url(#Mask_Mask_2)" writing-mode="lr"><tspan x="0" y="29.5" baseline-shift="0%" font-family="Calibri" font-weight="bold" font-size="31" fill="#ED7179" xml:space="preserve">κύκλος</tspan></text>
+</g>
+
+<g transform="matrix( 1, 0, 0, 1, 761.5,145.8) ">
+<clipPath id="Mask_Mask_3">
+<rect x="-2" y="-2" width="71.95" height="70.7" fill="#FFFFFF" stroke="none"/>
+</clipPath>
+
+<text clip-path="url(#Mask_Mask_3)" writing-mode="lr"><tspan x="0" y="29.5" baseline-shift="0%" font-family="Calibri" font-weight="bold" font-size="31" fill="#ED7179" xml:space="preserve">τρί-</tspan><tspan x="0" y="58.35" baseline-shift="0%" font-family="Calibri" font-weight="bold" font-size="31" fill="#ED7179" xml:space="preserve">γωνο</tspan></text>
+</g>
+
+<g transform="matrix( 1, 0, 0, 1, 150.2,149.4) ">
+<clipPath id="Mask_Mask_4">
+<rect x="-2" y="-2" width="86.65" height="70.7" fill="#FFFFFF" stroke="none"/>
+</clipPath>
+
+<text clip-path="url(#Mask_Mask_4)" writing-mode="lr"><tspan x="0" y="29.5" baseline-shift="0%" font-family="Calibri" font-weight="bold" font-size="31" fill="#ED7179" xml:space="preserve">τετρά-</tspan><tspan x="0" y="58.35" baseline-shift="0%" font-family="Calibri" font-weight="bold" font-size="31" fill="#ED7179" xml:space="preserve">γωνο</tspan></text>
+</g>
+
+<g transform="matrix( 1, 0, 0, 1, 259.1,396.4) ">
+<clipPath id="Mask_Mask_5">
+<rect x="-2" y="-2" width="100.85" height="41.85" fill="#FFFFFF" stroke="none"/>
+</clipPath>
+
+<text clip-path="url(#Mask_Mask_5)" writing-mode="lr"><tspan x="0" y="29.5" baseline-shift="0%" font-family="Calibri" font-weight="bold" font-size="31" fill="#ED7179" xml:space="preserve">ρόμβος</tspan></text>
+</g>
+
+<g transform="matrix( 1, 0, 0, 1, 264.75,26.05) ">
+<clipPath id="Mask_Mask_6">
+<rect x="-2" y="-2" width="83.3" height="70.7" fill="#FFFFFF" stroke="none"/>
+</clipPath>
+
+<text clip-path="url(#Mask_Mask_6)" writing-mode="lr"><tspan x="0" y="29.5" baseline-shift="0%" font-family="Calibri" font-weight="bold" font-size="31" fill="#ED7179" xml:space="preserve">πυρα-</tspan><tspan x="0" y="58.35" baseline-shift="0%" font-family="Calibri" font-weight="bold" font-size="31" fill="#ED7179" xml:space="preserve">μίδα</tspan></text>
+</g>
+
+<g transform="matrix( 1, 0, 0, 1, 273.75,274.05) ">
+<clipPath id="Mask_Mask_7">
+<rect x="-2" y="-2" width="79.4" height="70.7" fill="#FFFFFF" stroke="none"/>
+</clipPath>
+
+<text clip-path="url(#Mask_Mask_7)" writing-mode="lr"><tspan x="0" y="29.5" baseline-shift="0%" font-family="Calibri" font-weight="bold" font-size="31" fill="#ED7179" xml:space="preserve">σφαί-</tspan><tspan x="0" y="58.35" baseline-shift="0%" font-family="Calibri" font-weight="bold" font-size="31" fill="#ED7179" xml:space="preserve">ρα</tspan></text>
+</g>
+
+<g transform="matrix( 1, 0, 0, 1, 629.65,43.75) ">
+<clipPath id="Mask_Mask_8">
+<rect x="-2" y="-2" width="91.15" height="41.85" fill="#FFFFFF" stroke="none"/>
+</clipPath>
+
+<text clip-path="url(#Mask_Mask_8)" writing-mode="lr"><tspan x="0" y="29.5" baseline-shift="0%" font-family="Calibri" font-weight="bold" font-size="31" fill="#ED7179" xml:space="preserve">αστέρι</tspan></text>
+</g>
+
+<g transform="matrix( 1, 0, 0, 1, 386.95,270.15) ">
+<clipPath id="Mask_Mask_9">
+<rect x="-2" y="-2" width="90.85" height="70.7" fill="#FFFFFF" stroke="none"/>
+</clipPath>
+
+<text clip-path="url(#Mask_Mask_9)" writing-mode="lr"><tspan x="0" y="29.5" baseline-shift="0%" font-family="Calibri" font-weight="bold" font-size="31" fill="#ED7179" xml:space="preserve">πεντά-</tspan><tspan x="0" y="58.35" baseline-shift="0%" font-family="Calibri" font-weight="bold" font-size="31" fill="#ED7179" xml:space="preserve">γωνο</tspan></text>
+</g>
+
+<g transform="matrix( 1, 0, 0, 1, 395.15,27.7) ">
+<clipPath id="Mask_Mask_10">
+<rect x="-2" y="-2" width="71.95" height="70.7" fill="#FFFFFF" stroke="none"/>
+</clipPath>
+
+<text clip-path="url(#Mask_Mask_10)" writing-mode="lr"><tspan x="0" y="29.5" baseline-shift="0%" font-family="Calibri" font-weight="bold" font-size="31" fill="#ED7179" xml:space="preserve">εξά-</tspan><tspan x="0" y="58.35" baseline-shift="0%" font-family="Calibri" font-weight="bold" font-size="31" fill="#ED7179" xml:space="preserve">γωνο</tspan></text>
+</g>
+
+<g transform="matrix( 1, 0, 0, 1, 383.7,517.25) ">
+<clipPath id="Mask_Mask_11">
+<rect x="-2" y="-2" width="96.4" height="41.85" fill="#FFFFFF" stroke="none"/>
+</clipPath>
+
+<text clip-path="url(#Mask_Mask_11)" writing-mode="lr"><tspan x="0" y="29.5" baseline-shift="0%" font-family="Calibri" font-weight="bold" font-size="31" fill="#ED7179" xml:space="preserve">καρδιά</tspan></text>
+</g>
+</g>
+</svg>

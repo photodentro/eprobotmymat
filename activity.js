@@ -192,7 +192,7 @@ function deleteCommand(cmdNum){
 
 function setSquare(){
   ge('eprobot').style.marginTop = sformat('{}em',act.position[1]*6);
-  ge('eprobot').style.marginLeft = sformat('{}em',act.position[0]*6);
+  ge('eprobot').style.marginLeft = sformat('{}em',act.position[0]*6.1);
 }
 
 function setOrientation(){
@@ -383,18 +383,18 @@ function moveDown(){
 }
 function moveRight(){
   if (act.position[0] < 6){//grid is 6 cells wide
-    animationSi(act.position[0]*6,(++act.position[0])*6,true);
+    animationSi(act.position[0]*6.1,(++act.position[0])*6.1,true);
   }
   else{
-    animationNo(act.position[0]*6,true,true);
+    animationNo(act.position[0]*6.1,true,true);
   }
 }
 function moveLeft(){
  if (act.position[0] > 0){
-    animationSi(act.position[0]*6,(--act.position[0])*6,true);
+    animationSi(act.position[0]*6.1,(--act.position[0])*6.1,true);
   } 
   else{
-    animationNo(act.position[0]*6,false,true);
+    animationNo(act.position[0]*6.1,false,true);
   }
 }
 
@@ -580,10 +580,16 @@ if (document.readyState === 'loading') {
 
 
 function changeGrid(){
-  var grids = {"empty":"resource/grid.svg",
-               "alpha":"resource/alphabet.svg",
-               "dice":"resource/dice.svg",
-               "school":"resource/school.svg"}
+  var grids = {"empty" :"resource/grid.svg",
+               "alpha" :"resource/alphabet.svg",
+               "dice"  :"resource/dice.svg",
+               "school":"resource/school.svg",
+               "instr" :"resource/instr.svg",
+               "toys"  :"resource/toys.svg",
+               "signs" :"resource/signs.svg",
+               "shapes":"resource/shapes.svg",
+               "colors":"resource/colors.svg",
+}
   var s = ge('sel');
   var i = s.selectedIndex;
   var sv = s.options[i].value;
@@ -592,4 +598,19 @@ function changeGrid(){
 
   ge('stage').style.backgroundImage = imurl;
 }
+
+function changeChar(){
+  var chars = {"ladybug" :"resource/ladybug.svg",
+               "car" :"resource/eprobot.svg",
+               "student"  :"resource/student.svg",
+}
+  var s = ge('selchar');
+  var i = s.selectedIndex;
+  var sv = s.options[i].value;
+  var im = chars[sv];
+
+  ge('eprobot').src = im;
+}
+
+
 
