@@ -17,7 +17,7 @@
    height="35.681057mm"
    viewBox="0 0 239.88442 134.85754"
    xml:space="preserve"
-   sodipodi:docname="beebot-de.svg"
+   sodipodi:docname="beebot-de1.svg"
    inkscape:version="0.92.4 (5da689c313, 2019-01-14)"><metadata
    id="metadata44"><rdf:RDF><cc:Work
        rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
@@ -80,8 +80,8 @@
    fit-margin-right="0"
    fit-margin-bottom="0"
    inkscape:zoom="0.531341"
-   inkscape:cx="-494.86812"
-   inkscape:cy="248.53219"
+   inkscape:cx="252.91487"
+   inkscape:cy="306.99598"
    inkscape:window-x="-8"
    inkscape:window-y="-8"
    inkscape:window-maximized="1"
@@ -156,7 +156,7 @@
    y="0"
    ry="19.381847" /><g
    id="g939"
-   transform="matrix(0.87150281,0.86911643,-0.87179639,0.86882375,148.51638,-176.50621)"
+   transform="matrix(0.87150281,0.86911643,-0.87179639,0.86882375,134.51638,-176.50621)"
    clip-path="url(#clipPath982)"
    style="fill:#ffffff"><g
      id="g881"
@@ -221,7 +221,7 @@
      style="fill:#ffffff">
 </g></g><g
    id="g939-7"
-   transform="matrix(0.87409887,-0.86652149,0.86919345,0.87141183,-126.06944,41.394041)"
+   transform="matrix(0.87409887,-0.86652149,0.86919345,0.87141183,-140.06944,41.394041)"
    clip-path="url(#clipPath982-1)"
    style="fill:#ffffff"><g
      id="g881-9"
@@ -263,4 +263,21 @@
      id="g909-4"
      style="fill:#ffffff" /><g
      id="g911-3"
-     style="fill:#ffffff" /></g></svg>
+     style="fill:#ffffff" /></g><rect
+   style="fill:none;fill-opacity:1;stroke:#ffffff;stroke-width:5.86845016;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+   id="rect875"
+   width="151.57603"
+   height="108.28934"
+   x="50.187325"
+   y="15.077745" /><text
+   xml:space="preserve"
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:1.25;font-family:calibri;-inkscape-font-specification:calibri;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;"
+   x="157.61125"
+   y="95.948021"
+   id="text879"><tspan
+     sodipodi:role="line"
+     id="tspan877"
+     x="157.61125"
+     y="95.948021"
+     style="font-size:74.66666412px;fill:#ffffff;">1</tspan></text>
+</svg>

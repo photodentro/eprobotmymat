@@ -104,7 +104,7 @@ const LT = 3
 var act = {};
 var inter,inter1,inter2;
 
-const allCommands = 20;
+const allCommands = 30;
 function showCommand(cmdCode,cell){
   var idSuffix = ['fd','rt','bk','lt'];
   for (var i=0; i<4; i++){//for all cmdCodes
@@ -131,7 +131,7 @@ function highlightCommand(i){
 
 function bindCommand(cmdName,cmdCode){
   ge(cmdName).onclick = function(event){
-    if (!act.play){//only add command if not in play
+    if (!act.play || (act.play && act.pause)){//only add command if not in play
     if (act.selected==-1){
       if (act.program.length<allCommands){
         cell = act.program.length;
@@ -184,10 +184,12 @@ function deleteCommand(cmdNum){
 	act.play = false;
 	act.pause = false;
 	act.selected = -1;
-    setOrientation();
-    setSquare();
-  	highlightCommand(-1);
+  setOrientation();
+  setSquare();
+  highlightCommand(-1);
+  clearTrace();
   }
+  stop();
 }
 
 function setSquare(){
@@ -205,6 +207,43 @@ function setOrientation(){
 }
 
 
+function marginsToCanvas(marginTop,marginLeft){
+  //margins are in ems
+  point = {};
+  marginTop = parseInt(marginTop);
+  marginLeft = parseInt(marginLeft);
+  point.y = marginTop/6*30 + 15;
+  point.x = marginLeft/6*43 + 21.5;//must be the scaling
+  return(point);
+}
+
+function positionToCanvas(position){
+  point = {};
+  point.y = position[1]*30 + 15;
+  point.x = position[0]*43 + 21.5;
+  return(point);
+}
+
+
+function clearTrace(){
+  c = ge('mycanvas');
+  ctx = c.getContext('2d');
+  ctx.clearRect(0,0,c.width,c.height);
+}
+
+function trace(startpoint,endpoint){
+
+  if (act.pencil){
+    c = ge('mycanvas');
+    ctx = c.getContext('2d');
+    ctx.setLineDash([]);
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.strokeRect(startpoint.x,startpoint.y,endpoint.x-startpoint.x,endpoint.y-startpoint.y);
+    ctx.stroke();
+    ctx.closePath();
+  }
+}
 function animationNo(curPos,dir,hor){
   /*animation with set interval 
     curPos is in ems
@@ -263,7 +302,8 @@ function animationNo(curPos,dir,hor){
         clearInterval(inter2);
         if (act.cmdExec < act.program.length){
           act.cmdExec += 1
-          setTimeout(nextCommand,100);
+          if (!act.pause){
+            setTimeout(nextCommand,100);}
         }
       }
       else{
@@ -294,6 +334,7 @@ function animationSi(startPos,endPos,hor){
   let i=0; 
   inter = setInterval(function(){
     if (act.play){
+      startpoint = marginsToCanvas(ge('eprobot').style.marginTop,ge('eprobot').style.marginLeft);
       if (Math.abs((startPos + i*diff - endPos)) < 0.01){
         if (hor){
           ge('eprobot').style.marginLeft = sformat("{}em",endPos);
@@ -304,7 +345,9 @@ function animationSi(startPos,endPos,hor){
         clearInterval(inter);
         if (act.cmdExec < act.program.length){
           act.cmdExec += 1
-          setTimeout(nextCommand,100);
+          if (!act.pause){
+            setTimeout(nextCommand,100);
+          }
         }
       }
       else{
@@ -316,6 +359,8 @@ function animationSi(startPos,endPos,hor){
         }
         i++;
     }
+    endpoint = marginsToCanvas(ge('eprobot').style.marginTop,ge('eprobot').style.marginLeft);
+    trace(startpoint,endpoint);
   }
 },100);
 }
@@ -350,12 +395,15 @@ function animationAn(startAngle,endAngle,clock){
         clearInterval(inter);
         if (act.cmdExec < act.program.length){
           act.cmdExec += 1
-          setTimeout(nextCommand,100);
+          if (!act.pause){
+            setTimeout(nextCommand,100);
+          }
         }
         else{
           highlightCommand(-1);
           act.play = false;
           act.selected = -1;
+          act.outofplace = true;
         }
       }
       else{
@@ -400,6 +448,9 @@ function moveLeft(){
 
 function nextCommand(){
   if (act.play){
+    if (act.cmdExec == 0){
+      clearTrace();
+    }
     setSquare();
     setOrientation();
     cmdCode = act.program[act.cmdExec];
@@ -413,6 +464,7 @@ function nextCommand(){
       act.position = [0,4];
       act.orientation = FD;
       act.selected = -1;
+      act.outofplace = true;
     }
     switch (cmdCode){
       case FD:
@@ -461,6 +513,7 @@ function restart(){
     setSquare();
     deleteProgram();
     highlightCommand(-1);//-1 means none
+    clearTrace();
 }
 
 function stop(){
@@ -473,16 +526,24 @@ function stop(){
   setOrientation();
   setSquare();
   highlightCommand(-1);//-1 means none
+  clearTrace();
   clearInterval(inter);
   clearInterval(inter1);
   clearInterval(inter2);
 }
 
 function runFast(currentCommand){
-  if (!act.play){
+  if (!act.play || (act.play && act.pause)){
+  	clearTrace();
+  	if (currentCommand == act.program.length - 1){
+  		act.outofplace = false;//if user clicks on last command
+  		                       //ladybug and commands are in
+  		                       //harmony
+  	}
     act.position = [0,4];
     act.orientation = FD;
     for (i=0; i<=currentCommand; i++){
+      startpoint = positionToCanvas(act.position);
       switch (act.program[i]){
         case FD:
           switch (act.orientation){
@@ -507,11 +568,13 @@ function runFast(currentCommand){
           act.orientation = (act.orientation + 3) % 4;
         break;
       }
+      endpoint = positionToCanvas(act.position);
+      trace(startpoint,endpoint);
     }
-      setSquare();
+    setSquare();
     setOrientation();
-    act.cmdExec = i;
-    highlightCommand(i-1);
+    act.cmdExec = currentCommand+1;
+    highlightCommand(currentCommand);
   }
 }
 
@@ -545,27 +608,44 @@ function init(){
     //act.position = [0,4];
     //act.orientation = FD;
     //act.cmdExec = 0;
-    if (!act.play){
+    if (!act.play || (act.play && act.pause)){
     act.play = true;
+    act.pause = false;
     setTimeout(nextCommand,100);
     }
   });
   
-  ge('cdelete').addEventListener('click',function(){
-  	console.log(act.selected);
-  	if (act.selected==-1){
-  		restart();
-  	}
-  	else{
-  		deleteCommand(act.selected);
-  	}
+
+  ge('cdelete1').addEventListener('click',function(){
+    if (act.selected>=0 && act.selected<act.program.length){
+      deleteCommand(act.selected);
+    }
   });
+
+  ge('cdelete').addEventListener('click',restart);
 
   ge('cstop').addEventListener('click',function(){
       stop();
   });
+  ge('cpause').addEventListener('click',function(){
+    act.selected = act.cmdExec;
+    act.pause = true;
+  });
+  ge('cpencil').addEventListener('click',function(){
+      if (!act.play || (act.play && act.pause)){
+        clearTrace();
+        act.pencil = !act.pencil;
+        if (act.pencil){
+          ge('cpencil').src = "resource/pencil-on.svg";
+          runFast(act.cmdExec-1);
+        }
+        else{
+          ge('cpencil').src = "resource/pencil-off.svg";
+        }
+      }
+    });
   for (let i=0; i<allCommands; i++){
-    ge('cell'+i.toString()).onclick = function(){runFast(i); act.selected = i; console.log(act.selected);};
+    ge('cell'+i.toString()).onclick = function(){runFast(i); act.selected = i;};
   }
 }
 
