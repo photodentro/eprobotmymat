@@ -57,26 +57,11 @@ body {
   display:inline-block;
   color:black;
 }
-#sel {
-  height:2.5em;
-  margin-top:0.5em;
-  font-size:0.9em;
-  width:8em;
-}
 #selchar {
   height:2em;
   font-size:0.9em;
 }
 
-#mats{
-  display:block;
-  text-align:left;
-  height:3.6em;
-  width:8em;
-  margin-bottom: 1em;
-  color:black;
-  font-size:0.9em;
-}
 #chars{
   display:block;
   text-align:left;
@@ -90,7 +75,7 @@ body {
   display:inline-block;
   float:left;
   overflow: auto;
-  margin-left: 0.3em;
+  margin-left: 1em;
   width:8em;
   text-align:center;
 }
@@ -117,21 +102,21 @@ body {
   cursor:pointer;  
 }
 #up{
-  background-color:#ffffff77;
+  background-color:rgba(255,255,255,0.5);
   display:inline-block;
   float:left;
   overflow: auto;
   width:8em;
 }
 #middle{
-  background-color:#ffffff77;
+  background-color:rgba(255,255,255,0.5);
   display:inline-block;
   float:left;
   overflow: auto;
   width:8em;
 }
 #down{
-  background-color:#ffffff77;	
+  background-color:rgba(255,255,255,0.5);	
   display:inline-block;
   float:left;
   overflow: auto;
@@ -173,13 +158,13 @@ body {
 }
 
 #program{
-  background-color:#00000077;
+  background-color:rgba(0,0,0,0.5);
   display:inline-block;
   height: 32em;
   width: 10em;
   display:inline-block;
-  margin-left:0.2em;
-  margin-right:0.2em;
+  margin-left:0.5em;
+  margin-right:0em;
   padding: 0.1em 0.1em 0.1em 0.1em;
   height:30em;
   vertical-align: top;
@@ -222,13 +207,15 @@ body {
 }
 #stage{
   position:absolute;
-  background-image:url('./resource/grid.svg');
-  background-size: cover;
+  padding-left:0.2em;
+  padding-top: 0.16em;
+  background-color: #573B0C;
   display:inline-block;
   margin-bottom: 1.5em;
   margin-right:0.5em;
-  height: 30.1em;
-  width:43em;
+  margin-left:0.5em;
+  height: 30em;
+  width:42.5em;
 }
 #mycanvas{
   position:absolute;
@@ -238,6 +225,7 @@ body {
   height: 30.1em;
   width:43em;
   z-index: 100;
+  pointer-events: none;/*click through canvas*/
 }
 #grid{
 	width:100%;
@@ -331,3 +319,21 @@ body {
   z-index: 1000;
 }
 
+.stageSquare {
+  background-size: cover;
+  display: inline-block;
+  width:5.8em;
+  height:5.7em;
+}
+
+
+@keyframes eat {
+    0%   {width:6em;}
+    50%  {width:6.2em;}
+    100% {width:6em;}
+}
+
+@keyframes restart{
+  0% {width:6em;}
+  100% {width:6em;}
+}

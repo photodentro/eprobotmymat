@@ -7,7 +7,7 @@ SPDX-License-Identifier: CC-BY-SA-4.0
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Ρομπότ εδάφους με επεξεργασία προγράμματος: δάπεδα</title>
+  <title>Ρομπότ εδάφους με επεξεργασία προγράμματος και δαπέδου</title>
   <style>
     /* Dummy style for animations */
   </style>
@@ -19,27 +19,13 @@ SPDX-License-Identifier: CC-BY-SA-4.0
 <body>
 <div id="main">
   <div id = "ui">
-    <div id = "mats">
-      Επιλογή δαπέδου:
-      <select id ="sel" onchange="changeGrid();">
-        <option value="empty">Κενό</option>
-        <option value="alpha">Αλφαβήτα</option>
-        <option value="dice">Ζάρι</option>
-        <option value="instr">Μουσικά όργανα</option>
-        <option value="toys">Παιχνίδια</option>
-        <option value="signs">Σήματα κυκλοφορίας</option>
-        <option value="shapes">Σχήματα</option>
-        <option value="school">Σχολείο</option>
-        <option value="frouta">Φρούτα</option>
-        <option value="colors">Χρώματα</option>
-      </select>
-    </div>
     <div id = "chars">
       Επιλογή χαρακτήρα:
       <select id ="selchar" onchange="changeChar();">
         <option value="ladybug">Πασχαλίτσα</option>
-        <option value="car">Αυτοκίνητο</option>
-        <option value="student">Μαθητής</option>
+        <option value="butterfly">Πεταλούδα</option>
+        <option value="ant">Μυρμήγκι</option>
+        <option value="bee">Μέλισσα</option>
       </select>
     </div>
   	<div id = "up">
@@ -248,7 +234,42 @@ SPDX-License-Identifier: CC-BY-SA-4.0
   <canvas id="mycanvas">
   </canvas>
   <div id="stage">
-      <img id="eprobot" src="resource/ladybug.svg">
+  	<img id="eprobot" src="resource/ladybug.svg">
+    <div class="stageSquare" id="stage0"></div>
+    <div class="stageSquare" id="stage1"></div>
+    <div class="stageSquare" id="stage2"></div>
+    <div class="stageSquare" id="stage3"></div>
+    <div class="stageSquare" id="stage4"></div>
+    <div class="stageSquare" id="stage5"></div>
+    <div class="stageSquare" id="stage6"></div>
+    <div class="stageSquare" id="stage7"></div>
+    <div class="stageSquare" id="stage8"></div>
+    <div class="stageSquare" id="stage9"></div>
+    <div class="stageSquare" id="stage10"></div>
+    <div class="stageSquare" id="stage11"></div>
+    <div class="stageSquare" id="stage12"></div>
+    <div class="stageSquare" id="stage13"></div>
+    <div class="stageSquare" id="stage14"></div>
+    <div class="stageSquare" id="stage15"></div>
+    <div class="stageSquare" id="stage16"></div>
+    <div class="stageSquare" id="stage17"></div>
+    <div class="stageSquare" id="stage18"></div>
+    <div class="stageSquare" id="stage19"></div>
+    <div class="stageSquare" id="stage20"></div>
+    <div class="stageSquare" id="stage21"></div>
+    <div class="stageSquare" id="stage22"></div>
+    <div class="stageSquare" id="stage23"></div>
+    <div class="stageSquare" id="stage24"></div>
+    <div class="stageSquare" id="stage25"></div>
+    <div class="stageSquare" id="stage26"></div>
+    <div class="stageSquare" id="stage27"></div>
+    <div class="stageSquare" id="stage28"></div>
+    <div class="stageSquare" id="stage29"></div>
+    <div class="stageSquare" id="stage30"></div>
+    <div class="stageSquare" id="stage31"></div>
+    <div class="stageSquare" id="stage32"></div>
+    <div class="stageSquare" id="stage33"></div>
+    <div class="stageSquare" id="stage34"></div>
   </div>
 
   <div id="menubar">
@@ -258,21 +279,10 @@ SPDX-License-Identifier: CC-BY-SA-4.0
     <img id="bar_fullscreen" src="resource/bar_fullscreen.svg" alt="Πλήρης οθόνη" title="Πλήρης οθόνη">
   </div>
    </div>
-<div id="help"><div class="dialog">Σχημάτισε το πρόγραμμα με τα μπλε βελάκια και εκτέλεσέ το με το κουμπί εκτέλεσης.</div>
+<div id="help"><div class="dialog">Βάλε στον κήπο λουλούδια και λιμνούλες. Σχημάτισε το πρόγραμμα με τα μπλε βελάκια και εκτέλεσέ το με το κουμπί εκτέλεσης.</div>
 </div>
-<!-- preload-->
-<img src="resource/alphabet.svg" style="display:none;"/>
-<img src="resource/colors.svg" style="display:none;"/>
-<img src="resource/dice.svg" style="display:none;"/>
-<img src="resource/frouta.svg" style="display:none;"/>
-<img src="resource/grid.svg" style="display:none;"/>
-<img src="resource/instr.svg" style="display:none;"/>
-<img src="resource/school.svg" style="display:none;"/>
-<img src="resource/shapes.svg" style="display:none;"/>
-<img src="resource/signs.svg" style="display:none;"/>
-<img src="resource/toys.svg" style="display:none;"/>
-
-
-
+<!--preload-->
+<img src="resource/squareFlower.svg" style="display:none;">
+<img src="resource/squareWater.svg" style="display:none;">
 </body>
 </html>

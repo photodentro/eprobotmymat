@@ -59,6 +59,13 @@ function onResize(event) {
   }
 }
 
+function setAnimation(eleName,aniName,aniDur){
+  /* Code for Chrome, Safari, and Opera */
+  ge(eleName).classList.add(aniName);
+  ge(eleName).style.animationName = aniName;
+  ge(eleName).style.animationDuration = aniDur;
+}
+
 function doPreventDefault(event) {
   event.preventDefault();
 }
@@ -101,7 +108,20 @@ const FD = 0
 const RT = 1
 const BK = 2
 const LT = 3
-var act = {};
+
+const GRASS = 0;
+const FLOWER = 1;
+const WATER = 2;
+var act = {
+      program: [],
+      position: [0,4],
+      orientation: FD,
+      cmdExec: 0,
+      play: false,//play means that the program is executed but may be it is paused
+      pause: false,
+      selected: -1,
+      stage: [], 
+    }
 var inter,inter1,inter2;
 
 const allCommands = 30;
@@ -110,7 +130,6 @@ function showCommand(cmdCode,cell){
   for (var i=0; i<4; i++){//for all cmdCodes
     if (i==cmdCode){
       ge('cell'+cell.toString()+idSuffix[i]).style.display = '';
-
     }
     else{
       ge('cell'+cell.toString()+idSuffix[i]).style.display = 'none';
@@ -123,7 +142,7 @@ function highlightCommand(i){
   for (var cell = 0; cell<allCommands; cell++){
       ge('cell'+cell.toString()).classList.remove('cellHighlight');
     }
-  if (i!=-1){
+  if (i!=-1 && i<act.program.length){
     cell = i;
     ge('cell'+cell.toString()).classList.add('cellHighlight');
   }
@@ -171,30 +190,23 @@ function deleteCommand(cmdNum){
          ge('cell'+cell.toString()+idSuffix[i]).style.display = 'none';
     }    
   }
-  if (cmdNum>0){
-  	highlightCommand(cmdNum-1);
-  	runFast(cmdNum-1);
-  	act.cmdExec = cmdNum-1;
-  	act.selected = cmdNum-1;
-  }
-  else{//go to start without deleting the program
-	act.position = [0,4];
-	act.orientation = FD;
-	act.cmdExec =  0;
-	act.play = false;
-	act.pause = false;
-	act.selected = -1;
-  setOrientation();
-  setSquare();
-  highlightCommand(-1);
-  clearTrace();
-  }
   stop();
 }
 
+function getFlower(anim){
+  var ladySquare = act.position[1]*7 + act.position[0];
+  if (act.stage[ladySquare] == FLOWER){
+    ge('stage'+ladySquare.toString()).style.backgroundImage = "url('resource/squareGrass.svg')";
+    if (anim){
+  		setAnimation('eprobot','eat','0.2s');
+  		setTimeout(function(){setAnimation('eprobot','reset','0s');},200);
+  	}
+  }
+
+}
 function setSquare(){
   ge('eprobot').style.marginTop = sformat('{}em',act.position[1]*6);
-  ge('eprobot').style.marginLeft = sformat('{}em',act.position[0]*6.1);
+  ge('eprobot').style.marginLeft = sformat('{}em',act.position[0]*6);
 }
 
 function setOrientation(){
@@ -213,17 +225,25 @@ function marginsToCanvas(marginTop,marginLeft){
   marginTop = parseInt(marginTop);
   marginLeft = parseInt(marginLeft);
   point.y = marginTop/6*30 + 15;
-  point.x = marginLeft/6*43 + 21.5;//must be the scaling
+  point.x = marginLeft/6*42 + 25.1;//must be the scaling
   return(point);
 }
 
 function positionToCanvas(position){
   point = {};
   point.y = position[1]*30 + 15;
-  point.x = position[0]*43 + 21.5;
+  point.x = position[0]*42 + 25.1;
   return(point);
 }
 
+
+function resetScene(){
+  var imgUrls = ['resource/squareGrass.svg','resource/squareFlower.svg','resource/squareWater.svg'];
+  for (let i=0; i<35; i++){
+  	ge('stage' + i.toString()).style.backgroundImage = "url('"+imgUrls[act.stage[i]] +"')";
+  }
+
+}
 
 function clearTrace(){
   c = ge('mycanvas');
@@ -244,6 +264,39 @@ function trace(startpoint,endpoint){
     ctx.closePath();
   }
 }
+
+function isWater(position,dir){
+  var newPos = [];
+  newPos[0] = position[0];
+  newPos[1] = position[1];
+  if (dir == FD){
+    //means up
+    newPos[1] -= 1;
+  }
+  if (dir == BK){
+    //means down
+    newPos[1] += 1;
+  }
+  if (dir == RT){
+    newPos[0] += 1;
+  }
+  if (dir == LT){
+    newPos[1] += 1;
+  }
+  console.log(newPos,newPos[1]*7+newPos[0]);
+  try{
+    if (act.stage[newPos[1]*7+newPos[0]] == WATER){
+      return(true);
+    }
+  }
+  catch(err){
+    return(true);//if is out of bounds just return
+                 //that it is WATER so that the ladybug
+                 //cannot go
+    }
+  return(false);
+  }
+
 function animationNo(curPos,dir,hor){
   /*animation with set interval 
     curPos is in ems
@@ -342,6 +395,7 @@ function animationSi(startPos,endPos,hor){
         else{
           ge('eprobot').style.marginTop = sformat("{}em",endPos);
         }
+        getFlower(true);
         clearInterval(inter);
         if (act.cmdExec < act.program.length){
           act.cmdExec += 1
@@ -414,7 +468,7 @@ function animationAn(startAngle,endAngle,clock){
 }
 
 function moveUp(){
-  if (act.position[1] > 0){
+  if (act.position[1] > 0 && !isWater(act.position,FD)){
     animationSi(act.position[1]*6,(--act.position[1])*6,false);
   }
   else{
@@ -422,7 +476,7 @@ function moveUp(){
   }
 }
 function moveDown(){
-  if (act.position[1] < 4){
+  if (act.position[1] < 4 && !isWater(act.position,BK)){
     animationSi(act.position[1]*6,(++act.position[1])*6,false);
   }
   else{
@@ -430,19 +484,19 @@ function moveDown(){
   }
 }
 function moveRight(){
-  if (act.position[0] < 6){//grid is 6 cells wide
-    animationSi(act.position[0]*6.1,(++act.position[0])*6.1,true);
+  if (act.position[0] < 6 && !isWater(act.position,RT)){//grid is 6 cells wide
+    animationSi(act.position[0]*6,(++act.position[0])*6,true);
   }
   else{
-    animationNo(act.position[0]*6.1,true,true);
+    animationNo(act.position[0]*6,true,true);
   }
 }
 function moveLeft(){
- if (act.position[0] > 0){
-    animationSi(act.position[0]*6.1,(--act.position[0])*6.1,true);
+ if (act.position[0] > 0 && !isWater(act.position,LT)){
+    animationSi(act.position[0]*6,(--act.position[0])*6,true);
   } 
   else{
-    animationNo(act.position[0]*6.1,false,true);
+    animationNo(act.position[0]*6,false,true);
   }
 }
 
@@ -450,6 +504,7 @@ function nextCommand(){
   if (act.play){
     if (act.cmdExec == 0){
       clearTrace();
+      resetScene();
     }
     setSquare();
     setOrientation();
@@ -481,7 +536,7 @@ function nextCommand(){
           case RT: moveLeft(); break;
           case LT: moveRight(); break;
           case BK: moveUp(); break;
-        }    
+        }
       break;
       case RT:
         var startAngle = act.orientation;
@@ -500,20 +555,20 @@ function nextCommand(){
 }
 
 function restart(){
-    act = {
-      program: [],
-      position: [0,4],
-      orientation: FD,
-      cmdExec: 0,
-      play: false,//play means that the program is executed but may be it is paused
-      pause: false,
-      selected: -1,
-    }
+    act.program = [];
+    act.position = [0,4];
+    act.orientation = FD;
+    act.cmdExec = 0;
+    act.play = false;//play means that the program is executed but may be it is paused
+    act.pause = false;
+    act.selected = -1;
+    
     setOrientation();
     setSquare();
     deleteProgram();
     highlightCommand(-1);//-1 means none
     clearTrace();
+    resetScene();
 }
 
 function stop(){
@@ -527,6 +582,7 @@ function stop(){
   setSquare();
   highlightCommand(-1);//-1 means none
   clearTrace();
+  resetScene();
   clearInterval(inter);
   clearInterval(inter1);
   clearInterval(inter2);
@@ -535,6 +591,7 @@ function stop(){
 function runFast(currentCommand){
   if (!act.play || (act.play && act.pause)){
   	clearTrace();
+  	resetScene();
   	if (currentCommand == act.program.length - 1){
   		act.outofplace = false;//if user clicks on last command
   		                       //ladybug and commands are in
@@ -547,18 +604,18 @@ function runFast(currentCommand){
       switch (act.program[i]){
         case FD:
           switch (act.orientation){
-            case FD: if (act.position[1]>0) act.position[1]--; break;
-            case RT: if (act.position[0]<6) act.position[0]++; break;//grid is 6 cells wide
-            case LT: if (act.position[0]>0) act.position[0]--; break;
-            case BK: if (act.position[1]<4) act.position[1]++; break;
+            case FD: if (act.position[1]>0 && !isWater(act.position,FD)) act.position[1]--; break;
+            case RT: if (act.position[0]<6 && !isWater(act.position,RT)) act.position[0]++; break;//grid is 6 cells wide
+            case LT: if (act.position[0]>0 && !isWater(act.position,LT)) act.position[0]--; break;
+            case BK: if (act.position[1]<4 && !isWater(act.position,BK)) act.position[1]++; break;
           }
         break;
         case BK:
           switch (act.orientation){
-            case FD: if (act.position[1]<4) act.position[1]++; break;
-            case RT: if (act.position[0]>0) act.position[0]--; break;
-            case LT: if (act.position[0]<6) act.position[0]++; break;//grid is 6 cells wide
-            case BK: if (act.position[1]>0) act.position[1]--; break;
+            case FD: if (act.position[1]<4 && !isWater(act.position,BK)) act.position[1]++; break;
+            case RT: if (act.position[0]>0 && !isWater(act.position,LT)) act.position[0]--; break;
+            case LT: if (act.position[0]<6 && !isWater(act.position,RT)) act.position[0]++; break;//grid is 6 cells wide
+            case BK: if (act.position[1]>0 && !isWater(act.position,FD)) act.position[1]--; break;
           }    
         break;
         case RT:
@@ -570,6 +627,7 @@ function runFast(currentCommand){
       }
       endpoint = positionToCanvas(act.position);
       trace(startpoint,endpoint);
+      getFlower(false);
     }
     setSquare();
     setOrientation();
@@ -598,6 +656,7 @@ function init(){
   }
 
   restart();
+  sqs = 35; while (sqs--) act.stage[sqs] = 0;
 
   bindCommand('cforward',FD);
   bindCommand('cbackward',BK);
@@ -637,17 +696,37 @@ function init(){
         act.pencil = !act.pencil;
         if (act.pencil){
           ge('cpencil').src = "resource/pencil-on.svg";
-          runFast(act.cmdExec-1);
+          if (act.outofplace){
+          	runFast(act.program.length-1);
+          }
+          else{
+          	runFast(act.cmdExec-1);
+          }
         }
         else{
           ge('cpencil').src = "resource/pencil-off.svg";
+          clearTrace();
         }
       }
     });
   for (let i=0; i<allCommands; i++){
     ge('cell'+i.toString()).onclick = function(){runFast(i); act.selected = i;};
   }
+  for (let i=0; i<35; i++){
+    ge('stage'+i.toString()).style.backgroundImage = "url('resource/squareGrass.svg')";
+  }
+  for (let i=0; i<35; i++){
+    ge('stage'+i.toString()).onclick = function(){
+      if (act.cmdExec == 0 && !act.oufofplace){
+      	var imgUrls = ['resource/squareGrass.svg','resource/squareFlower.svg','resource/squareWater.svg'];
+      	act.stage[i] = (act.stage[i]+1)%3;
+      	event.target.style.backgroundImage = "url('" + imgUrls[act.stage[i]] + "')";
+      }
+    };
+  }
 }
+
+
 
 window.onerror = onError;
 window.onload = init;
@@ -659,30 +738,12 @@ if (document.readyState === 'loading') {
 }
 
 
-function changeGrid(){
-  var grids = {"empty" :"resource/grid.svg",
-               "alpha" :"resource/alphabet.svg",
-               "dice"  :"resource/dice.svg",
-               "school":"resource/school.svg",
-               "instr" :"resource/instr.svg",
-               "toys"  :"resource/toys.svg",
-               "signs" :"resource/signs.svg",
-               "shapes":"resource/shapes.svg",
-               "colors":"resource/colors.svg",
-}
-  var s = ge('sel');
-  var i = s.selectedIndex;
-  var sv = s.options[i].value;
-  var im = grids[sv];
-  var imurl = "url('" + im + "')";
-
-  ge('stage').style.backgroundImage = imurl;
-}
 
 function changeChar(){
   var chars = {"ladybug" :"resource/ladybug.svg",
-               "car" :"resource/eprobot.svg",
-               "student"  :"resource/student.svg",
+               "ant" :"resource/ant.svg",
+               "bee"  :"resource/bee.svg",
+               "butterfly" : "resource/butterfly.svg",
 }
   var s = ge('selchar');
   var i = s.selectedIndex;
