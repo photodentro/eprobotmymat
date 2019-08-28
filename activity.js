@@ -1,5 +1,6 @@
 /*
-Copyright (C) 2019 Dimitris Nikolos <dnikolos@gmail.com>.
+Copyright (C) 2019 Alkis Georgopoulos <alkisg@gmail.com>
+Dimitris Nikolos <dnikolos@gmail.com>.
 SPDX-License-Identifier: CC-BY-SA-4.0*/
 
 function onError(message, source, lineno, colno, error) {
@@ -109,9 +110,13 @@ const RT = 1
 const BK = 2
 const LT = 3
 
+const UP = 0
+const DN = 2//DOWN
+
 const GRASS = 0;
 const FLOWER = 1;
 const WATER = 2;
+
 var act = {
       program: [],
       position: [0,4],
@@ -281,7 +286,7 @@ function isWater(position,dir){
     newPos[0] += 1;
   }
   if (dir == LT){
-    newPos[1] += 1;
+    newPos[0] -= 1;
   }
   console.log(newPos,newPos[1]*7+newPos[0]);
   try{
