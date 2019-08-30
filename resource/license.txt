@@ -1,0 +1,26 @@
+Images from Freepik
+
+ant.svg
+background.svg
+bar_about.svg
+bar_fullscreen.svg
+bar_help.svg
+bar_home.svg
+bee.svg
+beebot-bk.svg
+beebot-de.svg
+beebot-de1.svg
+beebot-fd.svg
+beebot-go.svg
+beebot-lt.svg
+beebot-pa.svg
+beebot-rt.svg
+beebot-st.svg
+butterfly.svg
+eprobot.svg
+ladybug.svg
+pencil-off.svg
+pencil-on.svg
+squareFlower.svg
+squareGrass.svg
+squareWater.svg
