@@ -721,12 +721,11 @@ function init(){
     ge('stage'+i.toString()).style.backgroundImage = "url('resource/squareGrass.svg')";
   }
   for (let i=0; i<35; i++){
-    ge('stage'+i.toString()).onclick = function(){
+    ge('stage'+i.toString()).onclick = function(event){
       if (act.cmdExec == 0 && !act.oufofplace){
-      	var imgUrls = ['resource/squareGrass.svg','resource/squareFlower.svg','resource/squareWater.svg'];
       	act.stage[i] = (act.stage[i]+1)%3;
-      	event.target.style.backgroundImage = "url('" + imgUrls[act.stage[i]] + "')";
       }
+      resetScene();
     };
   }
 }
