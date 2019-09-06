@@ -728,6 +728,8 @@ function init(){
       resetScene();
     };
   }
+  ge('loading').style.display = "none";
+  ge('main').style.display = "";
 }
 
 
